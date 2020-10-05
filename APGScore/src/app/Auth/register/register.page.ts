@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -6,10 +7,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./register.page.scss'],
 })
 export class RegisterPage implements OnInit {
+  std = {
+    std_code:'',
+    username: '',
+    lastname:'',
+    password: ''
 
-  constructor() { }
+  }
+  constructor(private route: Router) { }
 
   ngOnInit() {
   }
-
+  signup(){
+    this.route.navigate(['/chooes-level']);
+  }
 }

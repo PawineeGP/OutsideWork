@@ -10,7 +10,8 @@ const routes: Routes = [
     path: '',
     redirectTo: 'home',
     pathMatch: 'full'
-  },  {
+  },
+  {
     path: 'login',
     loadChildren: () => import('./Auth/login/login.module').then( m => m.LoginPageModule)
   },
@@ -19,24 +20,24 @@ const routes: Routes = [
     loadChildren: () => import('./Auth/register/register.module').then( m => m.RegisterPageModule)
   },
   {
-    path: 'laevel1',
-    loadChildren: () => import('./pageControl/laevel1/laevel1.module').then( m => m.Laevel1PageModule)
-  },
-  {
-    path: 'laevel2',
-    loadChildren: () => import('./pageControl/laevel2/laevel2.module').then( m => m.Laevel2PageModule)
-  },
-  {
-    path: 'laevel3',
-    loadChildren: () => import('./pageControl/laevel3/laevel3.module').then( m => m.Laevel3PageModule)
-  },
-  {
     path: 'video-tutorial',
     loadChildren: () => import('./pageControl/video-tutorial/video-tutorial.module').then( m => m.VideoTutorialPageModule)
   },
   {
     path: 'chooes-level',
     loadChildren: () => import('./pageControl/chooes-level/chooes-level.module').then( m => m.ChooesLevelPageModule)
+  },
+  {
+    path: 'level1',
+    loadChildren: () => import('./pageControl/level1/level1.module').then( m => m.Level1PageModule)
+  },
+  {
+    path: 'level2',
+    loadChildren: () => import('./pageControl/level2/level2.module').then( m => m.Level2PageModule)
+  },
+  {
+    path: 'level3',
+    loadChildren: () => import('./pageControl/level3/level3.module').then( m => m.Level3PageModule)
   },
 
 ];

@@ -4,17 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { Laevel3PageRoutingModule } from './laevel3-routing.module';
+import { Level2PageRoutingModule } from './level2-routing.module';
 
-import { Laevel3Page } from './laevel3.page';
+import { Level2Page } from './level2.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    Laevel3PageRoutingModule
+    Level2PageRoutingModule
   ],
-  declarations: [Laevel3Page]
+  declarations: [Level2Page]
 })
-export class Laevel3PageModule {}
+export class Level2PageModule {}

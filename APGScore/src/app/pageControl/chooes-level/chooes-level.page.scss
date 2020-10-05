@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css?family=Athiti&display=swap');
+*{
+    margin: 0px;
+    padding: 0px;
+    display: block;
+}
+
+.bg-chooes-level{
+    --background: url(../../../assets/bg/chooes-lavel.png) 0 0/100% 100% no-repeat;
+    
+}
+#choose_level{
+  text-align: center;
+  position: relative;
+  left: 0;
+  right: 0;
+  top: 20%;
+  transform: translateY(-50%);
+    // margin-top: auto;
+    // margin-bottom: auto;
+}
+ion-button{
+    // --background: #d64f00e1;
+    --background: #d64f00e1;
+    margin-top: 50px;
+    --color:rgb(255, 255, 255);
+    font-family: 'Athiti', sans-serif;
+    padding-left: 10px;
+    padding-right: 10px;
+
+}
+
+.login-img{
+    display: block; 
+    width: 40%; 
+    height: auto;       
+    margin-left: auto; 
+    margin-right: auto;
+    border-radius:50%;      
+    border:0px solid rgba(255,255,255,0.4);
+  }
+

@@ -1,9 +1,30 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>login</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content padding class="background-login">
+  <div class="spacer" style="width: 300px; height: 10px;"></div>
+ <div class="spacer" style="width: 300px; height: 50px;"></div>
+<div>
+  <img src="../../../assets/logo/logo-bg-w.png" class="login-img">
+</div>
+<h4 id="page10-heading6" style="text-align:center;">เข้าสู่ระบบ</h4>
+<div class="spacer" style="width: 300px; height: 50px;"></div> 
+<form  #form="ngForm" >
+  <div class="dv-pd">
+    <ion-item>
+      <ion-icon name="log-in"></ion-icon><ion-input type="text" placeholder="รหัสนักศึกษา" name="username" [(ngModel)]="std.username"  required></ion-input>
+    </ion-item>
 
-<ion-content>
+    <ion-item> 
+      <ion-icon name="key"></ion-icon><ion-input type="password" placeholder="รหัสผ่าน" name="password"  [(ngModel)]="std.password"  required></ion-input>
+    </ion-item>
+  </div>       
+    <ion-button  shape="round" fill="outline" size="large" type="submit" [disabled]="form.invalid" (click)="signin()" expand="block">ยืนยัน</ion-button>      
+</form>   
 
+  <!-- <p style="text-align:center;color:#f05800f6"><b routerLink="/register">ลงทะเบียน</b></p> -->
 </ion-content>
+
+<ion-footer id="bg-footer">
+  <ion-toolbar>
+    <p style="text-align:center;color:#fffffff6"><b routerLink="/register">ลงทะเบียน</b></p>
+    <!-- <ion-title>Footer</ion-title> -->
+  </ion-toolbar>
+</ion-footer>

@@ -1,19 +1,19 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { Laevel3Page } from './laevel3.page';
+import { Level3Page } from './level3.page';
 
-describe('Laevel3Page', () => {
-  let component: Laevel3Page;
-  let fixture: ComponentFixture<Laevel3Page>;
+describe('Level3Page', () => {
+  let component: Level3Page;
+  let fixture: ComponentFixture<Level3Page>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ Laevel3Page ],
+      declarations: [ Level3Page ],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(Laevel3Page);
+    fixture = TestBed.createComponent(Level3Page);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));
