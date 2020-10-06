@@ -3,7 +3,7 @@
 *{
     margin: 0;
     padding: 0;
-    display: block;
+ 
 }
 h1{
     color: rgb(253, 99, 38);
@@ -41,8 +41,9 @@ ion-button{
     margin-top: 50px;
     --color: rgb(121, 38, 5);
     font-family: 'Athiti', sans-serif;
-    padding-left: 10px;
-    padding-right: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-weight: bold;
 }
 
 .dv-pd{
@@ -70,9 +71,14 @@ ion-button{
         --font-weight:200;
         --border:0px;
         --border-bottom: 1px solid #c9c6c3;
-        --border-color:#c9c6c3;
+        --border-color:rgb(53, 211, 158);
         font-family: 'Athiti', sans-serif;
+        --highlight-color-focused:#000;
+        // --inner-padding-bottom:0px;
        
+        padding-left: 10px;
+        padding-right: 10px;
+        // --background-focused-opacity:lightpink;
         .item-content{
             background:none;
             &.activated{
@@ -84,7 +90,7 @@ ion-button{
         }
         ion-icon{
             color:#4b0707f6;
-            padding: 8px;;
+            padding: 0px;;
             
         }
         ion-input{
@@ -92,6 +98,9 @@ ion-button{
             font-family: 'Athiti', sans-serif;
             --color:rgb(121, 38, 5);
             font-weight: bold;
+            --padding-start:10px;
+            // padding-left: 20px;
+            // padding-right: 10px;
         }
     }     
 }
@@ -99,3 +108,4 @@ ion-button{
 ion-toolbar{
     --background:rgb(53, 211, 158);
 }
+
