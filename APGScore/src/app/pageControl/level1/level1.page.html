@@ -1,9 +1,72 @@
-<ion-header>
+<!-- <ion-header>
   <ion-toolbar>
     <ion-title>level1</ion-title>
   </ion-toolbar>
-</ion-header>
+</ion-header> -->
 
-<ion-content>
+<ion-content padding>
+  <ion-grid>
+    <div *ngIf="randomCard.length > 0">
+      <div *ngFor="let item of randomCard, let i = index;" >
+        <ion-list *ngIf="randomCard.length === (randomCard.length - i)" >
+          <ion-radio-group [(ngModel)]="status">
+            <ion-list-header>
+              <ion-label><h2>{{ randomCard[i].problem }}</h2></ion-label>
+            </ion-list-header>
+        
+            <ion-item>
+              <ion-label>{{ randomCard[i].option1 }}</ion-label>
+              <ion-radio (click)="onCheck('1')" slot="start" value="1"></ion-radio>
+            </ion-item>
+        
+            <ion-item>
+              <ion-label>{{ randomCard[i].option2 }}</ion-label>
+              <ion-radio (click)="onCheck('2')" slot="start" value="2"></ion-radio>
+            </ion-item>
+        
+            <ion-item>
+              <ion-label>{{ randomCard[i].option3 }}</ion-label>
+              <ion-radio (click)="onCheck('3')" slot="start" value="3"></ion-radio>
+            </ion-item>
+      
+            <ion-item>
+              <ion-label>{{ randomCard[i].option4 }}</ion-label>
+              <ion-radio (click)="onCheck('4')" slot="start" value="4"></ion-radio>
+            </ion-item>
+          </ion-radio-group>
+          <div>
+            <ion-row>
+              <ion-col style="padding-left: 75%;">
+                <ion-button color="success" [disabled]="status === ''" (click)="next(i)">
+                  <ion-icon slot="end" name="arrow-forward-outline"></ion-icon>
+                  ตกลง
+                </ion-button>
+              </ion-col>
+            </ion-row>
+          </div>
+        </ion-list>
+      </div>
+    </div>
 
+    <div style="text-align: center;" *ngIf="randomCard.length === 0">
+      <h1>หม๋ดแล่ว</h1>
+      <h2>คะแนนที่ได้: {{score}}/10</h2>
+      <ion-row>
+        <ion-col>
+          <ion-button color="primary">
+            <ion-icon slot="end" name="home-outline"></ion-icon>
+            กลับหน้าหลัก
+          </ion-button>
+        </ion-col>
+
+        <ion-col>
+          <ion-button color="primary">
+            <ion-icon slot="end" name="chevron-forward-outline"></ion-icon>
+            ด่านต่อไป
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </div>
+
+  </ion-grid>
 </ion-content>
