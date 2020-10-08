@@ -1,13 +1,13 @@
 <ion-content padding>
   <div id="container">
-    <div *ngIf="randomCard.length > 0">
-      <div *ngFor="let item of randomCard, let i = index;">
-        <div *ngIf="randomCard.length === (randomCard.length - i)">
+    <div *ngIf="quiz.length > 0">
+      <div *ngFor="let item of quiz, let i = index;">
+        <div *ngIf="quiz.length === (quiz.length - i)">
           <section>
             <ion-radio-group [(ngModel)]="status">
               <ion-list-header>
                 <ion-label>
-                  <h2>{{ randomCard[i].problem }}</h2>
+                  <h2>{{ quiz[i].problem }}</h2>
                 </ion-label>
               </ion-list-header>
               <div class="spacer" style="width: 300px; height: 30px;"></div>
@@ -19,7 +19,7 @@
                       <div>
                         <input type="radio" id="control_01" name="select" (click)="onCheck('1')" slot="start" value="1">
                         <label for="control_01">
-                          <p>{{ randomCard[i].option1 }}</p>
+                          <p>{{ quiz[i].option1 }}</p>
                         </label>
                       </div>
                     </ion-col>
@@ -29,7 +29,7 @@
                         <input type="radio" id="control_02" name="select" (click)="onCheck('2')" slot="start" value="2">
                         <label for="control_02">
 
-                          <p>{{ randomCard[i].option2 }}</p>
+                          <p>{{ quiz[i].option2 }}</p>
                         </label>
                       </div>
                     </ion-col>
@@ -39,7 +39,7 @@
                         <input type="radio" id="control_03" name="select" (click)="onCheck('3')" slot="start" value="3">
                         <label for="control_03">
 
-                          <p>{{ randomCard[i].option3 }}</p>
+                          <p>{{ quiz[i].option3 }}</p>
                         </label>
                       </div>
                     </ion-col>
@@ -49,7 +49,7 @@
                         <input type="radio" id="control_04" name="select" (click)="onCheck('4')" slot="start" value="4">
                         <label for="control_04">
 
-                          <p>{{ randomCard[i].option4 }}</p>
+                          <p>{{ quiz[i].option4 }}</p>
                         </label>
                       </div>
                     </ion-col>
@@ -76,31 +76,31 @@
 
 
 
-  <!-- <div *ngIf="randomCard.length > 0">
-      <div *ngFor="let item of randomCard, let i = index;" >
-        <ion-list *ngIf="randomCard.length === (randomCard.length - i)" >
+  <!-- <div *ngIf="quiz.length > 0">
+      <div *ngFor="let item of quiz, let i = index;" >
+        <ion-list *ngIf="quiz.length === (quiz.length - i)" >
           <ion-radio-group [(ngModel)]="status">          
             <ion-list-header>
-              <ion-label><h2>{{ randomCard[i].problem }}</h2></ion-label>
+              <ion-label><h2>{{ quiz[i].problem }}</h2></ion-label>
             </ion-list-header>
         
             <ion-item>
-              <ion-label>{{ randomCard[i].option1 }}</ion-label>
+              <ion-label>{{ quiz[i].option1 }}</ion-label>
               <ion-radio (click)="onCheck('1')" slot="start" value="1" type="hidden"></ion-radio>
             </ion-item>
         
             <ion-item>
-              <ion-label>{{ randomCard[i].option2 }}</ion-label>
+              <ion-label>{{ quiz[i].option2 }}</ion-label>
               <ion-radio (click)="onCheck('2')" slot="start" value="2"></ion-radio>
             </ion-item>
         
             <ion-item>
-              <ion-label>{{ randomCard[i].option3 }}</ion-label>
+              <ion-label>{{ quiz[i].option3 }}</ion-label>
               <ion-radio (click)="onCheck('3')" slot="start" value="3"></ion-radio>
             </ion-item>
       
             <ion-item>
-              <ion-label>{{ randomCard[i].option4 }}</ion-label>
+              <ion-label>{{ quiz[i].option4 }}</ion-label>
               <ion-radio (click)="onCheck('4')" slot="start" value="4"></ion-radio>
             </ion-item>
           </ion-radio-group>
@@ -118,24 +118,24 @@
       </div>
     </div>  -->
 
-  <div style="text-align: center;" *ngIf="randomCard.length === 0">
-    <h1>หม๋ดแล่ว</h1>
-    <h2>คะแนนที่ได้: {{score}}/10</h2>
-    <ion-row>
-      <ion-col>
-        <ion-button color="primary">
-          <ion-icon slot="end" name="home-outline"></ion-icon>
-          กลับหน้าหลัก
-        </ion-button>
-      </ion-col>
+    <div style="text-align: center;" *ngIf="quiz.length === 0">
+      <img style="opacity: 0.5;" src="../../../assets/icon/complete1.png" alt="">
+      <h2>คะแนนที่ได้: {{score}}/10</h2>
+      <ion-row>
+        <ion-col>
+          <ion-button color="primary">
+            <ion-icon slot="end" name="home-outline"></ion-icon>
+            กลับหน้าหลัก
+          </ion-button>
+        </ion-col>
 
-      <ion-col>
-        <ion-button color="primary">
-          <ion-icon slot="end" name="chevron-forward-outline"></ion-icon>
-          ด่านต่อไป
-        </ion-button>
-      </ion-col>
-    </ion-row>
-  </div>
+        <ion-col>
+          <ion-button color="primary">
+            <ion-icon slot="end" name="chevron-forward-outline"></ion-icon>
+            ด่านต่อไป
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </div>
 
 </ion-content>
