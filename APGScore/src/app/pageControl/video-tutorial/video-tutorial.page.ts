@@ -1,3 +1,5 @@
+import { Router } from '@angular/router';
+import { AngularFireAuth } from '@angular/fire/auth';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +9,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VideoTutorialPage implements OnInit {
 
-  constructor() { }
+  constructor(private route: Router, public afAuth: AngularFireAuth) { }
 
   ngOnInit() {
+  }
+
+  signout(){
+    this.afAuth.signOut()
+    .then(() => {
+      localStorage.setItem('uid', '');
+      localStorage.setItem('quiz', '');
+      this.route.navigateByUrl('/home');
+    });
+  }
+
+  gotoChooesLevel() {
+    this.route.navigateByUrl('/chooes-level');
   }
 
 }
