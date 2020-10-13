@@ -32,6 +32,7 @@ export class ChooesLevelPage implements OnInit {
     this.afAuth.signOut()
     .then(() => {
       localStorage.setItem('uid', '');
+      localStorage.setItem('quiz', '');
       this.route.navigateByUrl('/home');
     });
   }
@@ -76,12 +77,11 @@ export class ChooesLevelPage implements OnInit {
     console.log('rd =', this.random);
     if (this.random === 1) {
       // this.quiz = QUESTION1;
-      localStorage.setItem('quiz', QUESTION1 + '');
+      localStorage.setItem('quiz', JSON.stringify(QUESTION1) + '');
     } else if (this.random === 2) {
       // this.quiz = QUESTION2;
-      localStorage.setItem('quiz', QUESTION2 + '');
+      localStorage.setItem('quiz', JSON.stringify(QUESTION2) + '');
     }
-    // console.log('quiz =', this.quiz);
     this.route.navigateByUrl('/level1');
   }
 

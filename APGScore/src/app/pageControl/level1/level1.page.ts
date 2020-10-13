@@ -17,7 +17,7 @@ export class Level1Page implements OnInit {
   random = 0;
   uid: string;
   userlist: any;
-  // quiz: string;
+  // quiz: any;
 
   std = {
     stdCode: '',
@@ -34,10 +34,13 @@ export class Level1Page implements OnInit {
     this.uid = localStorage.getItem('uid');
     console.log('uid = ' + this.uid);
 
-    this.lodeData();
+    // this.lodeData();
+    // console.log('data:', this.lodeData());
 
-    // this.quiz = localStorage.getItem('quiz');
-    // console.log('quiz1 =', this.quiz);
+    let q = localStorage.getItem('quiz');
+    this.quiz = JSON.parse(q);
+    console.log('quiz =', this.quiz[0].problem, 'ans =', this.quiz[0].answer);
+    console.log(JSON.parse(q));
   }
 
   ngOnInit() {
@@ -54,20 +57,20 @@ export class Level1Page implements OnInit {
           mytotal: e.payload.doc.data()['total'.toString()]
         };
       });
-      console.log(this.userlist);
+      console.log('userlist =', this.userlist);
     });
   }
 
-  lodeData() {
-    this.random = Math.floor(Math.random() * 2) + 1;
-    console.log('rd =', this.random);
-    if (this.random === 1) {
-      this.quiz = QUESTION1;
-    } else if (this.random === 2) {
-      this.quiz = QUESTION2;
-    }
-    console.log('quiz =', this.quiz);
-  }
+  // lodeData() {
+  //   this.random = Math.floor(Math.random() * 2) + 1;
+  //   console.log('rd =', this.random);
+  //   if (this.random === 1) {
+  //     this.quiz = QUESTION1;
+  //   } else if (this.random === 2) {
+  //     this.quiz = QUESTION2;
+  //   }
+  //   console.log('quiz =', this.quiz);
+  // }
 
   onCheck(str: string) {
     console.log('*****************');
@@ -106,24 +109,24 @@ export class Level1Page implements OnInit {
       this.random = Math.floor(Math.random() * 2) + 1;
       console.log('rd =', this.random);
       if (this.random === 1) {
-        this.quiz = QUESTION1;
-        // localStorage.setItem('quiz', QUESTION1 + '');
+        // this.quiz = QUESTION1;
+        localStorage.setItem('quiz', QUESTION1 + '');
       } else if (this.random === 2) {
-        this.quiz = QUESTION2;
-        // localStorage.setItem('quiz', QUESTION2 + '');
+        // this.quiz = QUESTION2;
+        localStorage.setItem('quiz', QUESTION2 + '');
       }
-      this.route.navigateByUrl(`/${url}`);
       console.log('quiz =', this.quiz);
+      this.route.navigateByUrl(`/${url}`);
 
     }else if (url ===  'level2'){
       this.random = Math.floor(Math.random() * 2) + 1;
       console.log('rd =', this.random);
       if (this.random === 1) {
-        this.quiz = QUESTION1;
-        // localStorage.setItem('quiz', QUESTION1 + '');
+        // this.quiz = QUESTION1;
+        localStorage.setItem('quiz', QUESTION1 + '');
       } else if (this.random === 2) {
-        this.quiz = QUESTION2;
-        // localStorage.setItem('quiz', QUESTION2 + '');
+        // this.quiz = QUESTION2;
+        localStorage.setItem('quiz', QUESTION2 + '');
       }
       console.log('quiz =', this.quiz);
       this.route.navigateByUrl(`/${url}`);
@@ -132,9 +135,5 @@ export class Level1Page implements OnInit {
       console.log('error');
     }
   }
-
-  // routelink(url){
-  //   if(url == '/level2')
-  // }
 
 }
