@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { ChooesLevelPageRoutingModule } from './chooes-level-routing.module';
 
 import { ChooesLevelPage } from './chooes-level.page';
+import { NgCircleProgressModule } from 'ng-circle-progress';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    ChooesLevelPageRoutingModule
+    ChooesLevelPageRoutingModule,
+    NgCircleProgressModule
   ],
   declarations: [ChooesLevelPage]
 })

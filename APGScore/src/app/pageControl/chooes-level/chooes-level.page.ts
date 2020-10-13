@@ -18,12 +18,20 @@ export class ChooesLevelPage implements OnInit {
 
   quiz: Question[];
   random = 0;
+  total_:any;
+  total_ori:any;
 
+  chk_admin: boolean = true;
   constructor(
     private route: Router,
     public afAuth: AngularFireAuth,
     private myapi: ServiceApiService
-  ) { this.getDetail(); }
+  ) { this.getDetail();
+    if(this.isAdmin == 'admin@gmail.com'){
+      this.chk_admin = true;
+    }else{
+      this.chk_admin = false;
+    } }
 
   ngOnInit() {
   }
@@ -47,8 +55,10 @@ export class ChooesLevelPage implements OnInit {
           myid: e.payload.doc.data()['id'.toString()],
           myname: e.payload.doc.data()['name'.toString()],
           mysurname: e.payload.doc.data()['surname'.toString()],
+          mytotal:e.payload.doc.data()['total']
         };
       });
+     
       console.log(this.userlist);
       let uid = localStorage.getItem('uid');
       console.log('uid:', uid);
@@ -58,11 +68,40 @@ export class ChooesLevelPage implements OnInit {
       console.log(name);
       let lastname = this.userlist[index].mysurname;
       console.log(lastname);
-      this.userEmail = name + ' ' + lastname;
+      this.userEmail = name + ' ' + lastname;      
+      
 
+
+     let u = this.userlist[index].mytotal;
+     let to1;
+
+      console.log(u);
+      if(u == 30){
+          this.total_ = u+70;
+      }else if(u == 15){
+        this.total_ = u+35;
+        console.log('15'+ this.total_);
+        
+     }else if(u == '10'){
+        this.total_ = 10+15;
+     }else if( u <= 15 && u >10){
+       this.total_ =  u + 30;
+     }else if( u<=30 && u >15){
+          this.total_= u+60;
+     }else if (u < 10 && u > 0){
+          this.total_ = u+12;
+     }else if (u == 0){
+       this.total_ = u;
+     }
+
+      this.total_ori = u;
+      console.log(this.total_ );
+      
+      
       this.afAuth.user.subscribe((res) => {
         if (res != null){
-          this.isAdmin = res.email;
+          this.isAdmin = res.email;       
+
         }else{
           console.log('logouted!');
         }
@@ -96,7 +135,7 @@ export class ChooesLevelPage implements OnInit {
   }
 
   viewScore(){
-    this.route.navigateByUrl('/view-score');
+    // this.route.navigateByUrl('/view-score');
 
   }
 
