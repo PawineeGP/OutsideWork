@@ -51,7 +51,7 @@ export class RegisterPage implements OnInit {
           this.myapi
             .createData(record)
             .then(() => {
-              this.route.navigateByUrl('chooes-level');
+              this.route.navigateByUrl('video-tutorial');
             })
             .catch(error => {
               console.log(error);

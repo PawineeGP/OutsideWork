@@ -21,7 +21,13 @@ export class ChooesLevelPage implements OnInit {
   total_:any;
   total_ori:any;
 
+<<<<<<< HEAD
   chk_admin: boolean = true;
+=======
+  ScoreState1 = 0;
+  ScoreState2 = 0;
+
+>>>>>>> bf351d35f51a9d5123606f55f7eafbebeeabb734
   constructor(
     private route: Router,
     public afAuth: AngularFireAuth,
@@ -55,7 +61,13 @@ export class ChooesLevelPage implements OnInit {
           myid: e.payload.doc.data()['id'.toString()],
           myname: e.payload.doc.data()['name'.toString()],
           mysurname: e.payload.doc.data()['surname'.toString()],
+<<<<<<< HEAD
           mytotal:e.payload.doc.data()['total']
+=======
+          mystate1: e.payload.doc.data()['state1'.toString()],
+          mystate2: e.payload.doc.data()['state2'.toString()],
+          mystate3: e.payload.doc.data()['state3'.toString()],
+>>>>>>> bf351d35f51a9d5123606f55f7eafbebeeabb734
         };
       });
      
@@ -68,6 +80,7 @@ export class ChooesLevelPage implements OnInit {
       console.log(name);
       let lastname = this.userlist[index].mysurname;
       console.log(lastname);
+<<<<<<< HEAD
       this.userEmail = name + ' ' + lastname;      
       
 
@@ -98,6 +111,16 @@ export class ChooesLevelPage implements OnInit {
       console.log(this.total_ );
       
       
+=======
+      this.userEmail = name + ' ' + lastname;
+
+      this.ScoreState1 = this.userlist[index].mystate1;
+      console.log('score 1st =', this.ScoreState1);
+
+      this.ScoreState2 = this.userlist[index].mystate2;
+      console.log('score 2nd =', this.ScoreState2);
+
+>>>>>>> bf351d35f51a9d5123606f55f7eafbebeeabb734
       this.afAuth.user.subscribe((res) => {
         if (res != null){
           this.isAdmin = res.email;       
@@ -121,6 +144,7 @@ export class ChooesLevelPage implements OnInit {
       // this.quiz = QUESTION2;
       localStorage.setItem('quiz', JSON.stringify(QUESTION2) + '');
     }
+    console.log('QuIz =', this.quiz);
     this.route.navigateByUrl('/level1');
   }
 
@@ -140,3 +164,12 @@ export class ChooesLevelPage implements OnInit {
   }
 
 }
+
+// code disable ด่าน เอาไปแทนบรรทัดที่ 11-17
+// <div id="choose_level" *ngIf="isAdmin !== 'admin@gmail.com' else admin" >
+//   <ion-button  size="large" type="submit" expand="block" (click)="state1()">ด่านที่ 1</ion-button>
+//   <div class="spacer" style="width: 300px; height: 10px;"></div>
+//   <ion-button  size="large" type="submit" expand="block" (click)="state2()" [disabled]="ScoreState1 === 0">ด่านที่ 2</ion-button>
+//   <div class="spacer" style="width: 300px; height: 10px;"></div>
+//   <ion-button  size="large" type="submit" expand="block" (click)="state3()" [disabled]="ScoreState1 === 0 || ScoreState2 === 0">ด่านที่ 3</ion-button>
+// </div>

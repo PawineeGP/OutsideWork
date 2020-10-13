@@ -66,8 +66,10 @@ export class Level1Page implements OnInit {
   //   console.log('rd =', this.random);
   //   if (this.random === 1) {
   //     this.quiz = QUESTION1;
+  //     localStorage.setItem('quiz', QUESTION1 + '');
   //   } else if (this.random === 2) {
   //     this.quiz = QUESTION2;
+  //     localStorage.setItem('quiz', QUESTION2 + '');
   //   }
   //   console.log('quiz =', this.quiz);
   // }
@@ -119,21 +121,58 @@ export class Level1Page implements OnInit {
       this.route.navigateByUrl(`/${url}`);
 
     }else if (url ===  'level2'){
+      this.route.navigateByUrl(`/${url}`);
+
+    }else if (url ===  'level1') {
       this.random = Math.floor(Math.random() * 2) + 1;
       console.log('rd =', this.random);
       if (this.random === 1) {
-        // this.quiz = QUESTION1;
+        this.quiz = QUESTION1;
         localStorage.setItem('quiz', QUESTION1 + '');
       } else if (this.random === 2) {
-        // this.quiz = QUESTION2;
+        this.quiz = QUESTION2;
         localStorage.setItem('quiz', QUESTION2 + '');
       }
       console.log('quiz =', this.quiz);
       this.route.navigateByUrl(`/${url}`);
-
-    }else{
-      console.log('error');
     }
   }
 
 }
+
+// code การเปลี่ยนปุ่ม เอาไปแทน ion-row เดิม
+// <div *ngIf="std.state1 !== 0 else Replay">
+//   <ion-row>
+//     <ion-col>
+//       <ion-button  color="primary" (click)="setScore('chooes-level')">
+//         <ion-icon slot="end" name="home-outline"></ion-icon>
+//         กลับหน้าหลัก
+//       </ion-button>
+//     </ion-col>
+
+//     <ion-col>
+//       <ion-button  color="primary" (click)="setScore('level2')" >
+//         <ion-icon slot="end" name="chevron-forward-outline"></ion-icon>
+//         ด่านต่อไป
+//       </ion-button>
+//     </ion-col>
+//   </ion-row>
+// </div>
+
+// <ng-template #Replay>
+//   <ion-row>
+//     <ion-col>
+//       <ion-button  color="primary" (click)="setScore('chooes-level')">
+//         <ion-icon slot="end" name="home-outline"></ion-icon>
+//         กลับหน้าหลัก
+//       </ion-button>
+//     </ion-col>
+
+//     <ion-col>
+//       <ion-button  color="primary" (click)="setScore('level1')" >
+//         <ion-icon slot="end" name="chevron-forward-outline"></ion-icon>
+//         เล่นอีกครั้ง
+//       </ion-button>
+//     </ion-col>
+//   </ion-row>
+// </ng-template>
