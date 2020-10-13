@@ -120,17 +120,17 @@
 
     <div style="text-align: center;" *ngIf="quiz.length === 0">
       <img style="opacity: 0.5;" src="../../../assets/icon/complete1.png" alt="">
-      <h2>คะแนนที่ได้: {{score}}/10</h2>
+      <h2>คะแนนที่ได้: {{std.state1}}/10</h2>
       <ion-row>
         <ion-col>
-          <ion-button color="primary">
+          <ion-button  color="primary" (click)="setScore('chooes-level')">
             <ion-icon slot="end" name="home-outline"></ion-icon>
             กลับหน้าหลัก
           </ion-button>
         </ion-col>
 
         <ion-col>
-          <ion-button color="primary">
+          <ion-button  color="primary" (click)="setScore('level2')">
             <ion-icon slot="end" name="chevron-forward-outline"></ion-icon>
             ด่านต่อไป
           </ion-button>

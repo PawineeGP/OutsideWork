@@ -5,15 +5,25 @@
   <div>
     <img src="../../../assets/logo/logo-bg-w.png" class="login-img">
   </div>
-      <h4 id="page10-heading6" style="text-align:center;">เลือกด่าน</h4>
-    
+      <h4 id="page10-heading6" style="text-align:center;">เลือกด่าน {{userEmail}}</h4>
+       <h4 style="text-align:center;" (click)="signout()"> logout</h4>
 
-  <div id="choose_level">
-    <ion-button  size="large" type="submit" expand="block" routerLink="/level1">ด่านที่ 1</ion-button> 
+  <div id="choose_level" *ngIf="isAdmin !== 'admin@gmail.com' else admin" >
+    <ion-button  size="large" type="submit" expand="block" (click)="state1()">ด่านที่ 1</ion-button> 
     <div class="spacer" style="width: 300px; height: 10px;"></div>
-    <ion-button  size="large" type="submit" expand="block" routerLink="/level2">ด่านที่ 2</ion-button>
+    <ion-button  size="large" type="submit" expand="block" (click)="state2()">ด่านที่ 2</ion-button>
     <div class="spacer" style="width: 300px; height: 10px;"></div>
-    <ion-button  size="large" type="submit" expand="block" routerLink="/level3">ด่านที่ 3</ion-button>
+    <ion-button  size="large" type="submit" expand="block" (click)="state3()">ด่านที่ 3</ion-button>
   </div>
+
+  <ng-template #admin>
+    <ion-button  size="large" type="submit" expand="block" (click)="state1()">ด่านที่ 1</ion-button> 
+    <div class="spacer" style="width: 300px; height: 10px;"></div>
+    <ion-button  size="large" type="submit" expand="block" (click)="state2()">ด่านที่ 2</ion-button>
+    <div class="spacer" style="width: 300px; height: 10px;"></div>
+    <ion-button  size="large" type="submit" expand="block" (click)="state3()">ด่านที่ 3</ion-button>
+    <div class="spacer" style="width: 300px; height: 10px;"></div>
+    <ion-button  size="large" type="submit" expand="block" (click)="viewScore()">ดูคะแนน</ion-button>
+  </ng-template>
  
 </ion-content>

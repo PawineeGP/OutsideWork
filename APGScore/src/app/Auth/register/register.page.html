@@ -1,6 +1,5 @@
 <ion-content padding class="background-login">
   <div class="spacer" style="width: 300px; height: 30px;"></div>
- 
 <div>
   <img src="../../../assets/logo/logo-bg-w.png" class="login-img">
 </div>
@@ -9,13 +8,13 @@
 <form  #form="ngForm" >
   <div class="dv-pd">
     <ion-item lines="inset">
-      <ion-icon ios="logo-buffer" md="logo-buffer"></ion-icon><ion-input type="text" placeholder="รหัสนักศึกษา" name="std_code" [(ngModel)]="std.std_code"  required></ion-input>
+      <ion-icon ios="logo-buffer" md="logo-buffer"></ion-icon><ion-input type="text" placeholder="รหัสนักศึกษา" name="std_code" [(ngModel)]="std.stdCode"  required></ion-input>
     </ion-item>
     <ion-item lines="inset">
       <ion-icon ios="logo-octocat" md="logo-octocat"></ion-icon><ion-input type="text" placeholder="ชื่อ" name="username" [(ngModel)]="std.username"  required></ion-input>
     </ion-item>
     <ion-item lines="inset">
-      <ion-icon ios="logo-octocat" md="logo-octocat"></ion-icon><ion-input type="text" placeholder="นามสกุล" name="username" [(ngModel)]="std.lastname"  required></ion-input>
+      <ion-icon ios="logo-octocat" md="logo-octocat"></ion-icon><ion-input type="text" placeholder="นามสกุล" name="lastname" [(ngModel)]="std.lastname"  required></ion-input>
     </ion-item>
     <ion-item lines="inset"> 
       <ion-icon name="key"></ion-icon><ion-input type="password" placeholder="รหัสผ่าน" name="password"  [(ngModel)]="std.password"  required></ion-input>
@@ -26,10 +25,3 @@
 <div class="spacer" style="width: 300px; height: 10px;"></div>
 <p style="text-align:center;color:#f05800f6">ยังไม่มีบัญชี | <a href="" routerLink="/login" style="color: rgb(121, 38, 5);">เข้าสู่ระบบ</a>   </p>
 </ion-content>
-
-<!-- <ion-footer id="bg-footer">
-  <ion-toolbar>
-    <p style="text-align:center;color:#fffffff6"><b routerLink="/login">เข้าสู่ระบบ</b></p>
-   
-  </ion-toolbar>
-</ion-footer> -->
