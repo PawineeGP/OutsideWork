@@ -10,12 +10,11 @@ import { Component, OnInit } from '@angular/core';
 export class VideoTutorialPage implements OnInit {
   currentTime: number;
   chk_btn: boolean = true;
-  constructor() {
+  constructor(private route: Router, private afAuth: AngularFireAuth) {
       
    }
   
 
-<<<<<<< HEAD
   setCurrentTime(data) {
     // console.log("data");
     
@@ -28,17 +27,14 @@ export class VideoTutorialPage implements OnInit {
      if(this.currentTime >= 115.686231){
       console.log("Button show");
       this.chk_btn = true;      
-    }else if(!this.currentTime){
+    }else if(!this.currentTime || this.currentTime == 0.00){
       this.chk_btn = false;  
     }else{
       this.chk_btn = false; 
     }
      
   }
-=======
-  constructor(private route: Router, public afAuth: AngularFireAuth) { }
 
->>>>>>> bf351d35f51a9d5123606f55f7eafbebeeabb734
   ngOnInit() {
    
   }

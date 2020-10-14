@@ -1,6 +1,6 @@
-<ion-content padding>
-  <div id="container">
-    <div *ngIf="quiz.length > 0">
+<ion-content padding class="bg-level1">
+  <div id="container"> 
+   <div *ngIf="quiz.length > 0">
       <div *ngFor="let item of quiz, let i = index;">
         <div *ngIf="quiz.length === (quiz.length - i)">
           <section>
@@ -58,10 +58,9 @@
               </div>
               <div>
                 <ion-row>
-                  <ion-col style="padding-left: 75%;">
-                    <ion-button color="success" [disabled]="status === ''" (click)="next(i)">
-                      <ion-icon slot="end" name="arrow-forward-outline"></ion-icon>
-                      ตกลง
+                  <ion-col >
+                    <ion-button color="success" [disabled]="status === ''" (click)="next(i)">                    
+                       ยืนยันคำตอบ
                     </ion-button>
                   </ion-col>
                 </ion-row>
@@ -70,12 +69,64 @@
           </section>
         </div>
       </div>
+    </div> 
+
+
+  </div> 
+  <div id="scoreV1">
+        <!-- *ngIf="quiz.length === 0" -->
+  <div style="text-align: center;" *ngIf="quiz.length === 0">
+    <h2>คะแนนที่ได้</h2>
+    <div class="spacer" style="width: 300px; height: 40px;"></div>
+    <!-- <img style="opacity: 0.5; position: fixed;" src="../../../assets/icon/complete1.png" alt=""> -->
+    <circle-progress [unitsFontWeight]="800" [percent]="(total_)" [radius]="60" [maxPercent]="200"
+    [units]="'/10'" [unitsColor]="'rgb(121, 38, 5)'" [title]="(total_ori)" [subtitle]="20"
+    [titleFontSize]="30" [titleFontWeight]="1000" [subtitleFontSize]="28" [subtitleFontWeight]="900"
+    [space]="-5" [outerStrokeWidth]="5" [outerStrokeColor]="'#24a368'" [innerStrokeColor]="'#FFF'"
+    [showBackground]="true" [animation]="true" [innerStrokeWidth]="5" [titleColor]="'#483500'"
+    [subtitleColor]="'#90240e'" [showTitle]="true" [showSubtitle]="false" [showInnerStroke]="true"
+    [startFromZero]="false" [animationDuration]="2000" [showUnits]="true" [unitsFontSize]="12"
+    [unitsFontWeight]="800">
+
+  </circle-progress>
+  <div class="spacer" style="width: 300px; height: 40px;"></div>
+    <div *ngIf="std.state1 !== 0 else Replay">
+      <ion-row>
+        <ion-col>
+          <ion-button color="primary" (click)="setScore('chooes-level')">
+            <ion-icon slot="end" name="home-outline"></ion-icon>
+            กลับหน้าหลัก
+          </ion-button>
+        </ion-col>
+
+        <ion-col>
+          <ion-button color="primary" (click)="setScore('level2')">
+            <ion-icon slot="end" name="chevron-forward-outline"></ion-icon>
+            ด่านต่อไป
+          </ion-button>
+        </ion-col>
+      </ion-row>
     </div>
+
+    <ng-template #Replay>
+      <ion-row>
+        <ion-col>
+          <ion-button color="primary" (click)="setScore('chooes-level')">
+            <ion-icon slot="end" name="home-outline"></ion-icon>
+            กลับหน้าหลัก
+          </ion-button>
+        </ion-col>
+
+        <ion-col>
+          <ion-button color="primary" (click)="setScore('level1')">
+            <ion-icon slot="end" name="chevron-forward-outline"></ion-icon>
+            เล่นอีกครั้ง
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ng-template>
   </div>
-
-
-
-
+  </div>
   <!-- <div *ngIf="quiz.length > 0">
       <div *ngFor="let item of quiz, let i = index;" >
         <ion-list *ngIf="quiz.length === (quiz.length - i)" >
@@ -118,7 +169,7 @@
       </div>
     </div>  -->
 
-    <div style="text-align: center;" *ngIf="quiz.length === 0">
+  <!-- <div style="text-align: center;" *ngIf="quiz.length === 0">
       <img style="opacity: 0.5;" src="../../../assets/icon/complete1.png" alt="">
       <h2>คะแนนที่ได้: {{std.state1}}/10</h2>
       <ion-row>
@@ -136,6 +187,6 @@
           </ion-button>
         </ion-col>
       </ion-row>
-    </div>
+    </div> -->
 
 </ion-content>

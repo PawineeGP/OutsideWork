@@ -1,5 +1,7 @@
 {
   "name": "APGScore",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

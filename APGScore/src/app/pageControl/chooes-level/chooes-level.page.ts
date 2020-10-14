@@ -21,13 +21,11 @@ export class ChooesLevelPage implements OnInit {
   total_:any;
   total_ori:any;
 
-<<<<<<< HEAD
   chk_admin: boolean = true;
-=======
-  ScoreState1 = 0;
-  ScoreState2 = 0;
-
->>>>>>> bf351d35f51a9d5123606f55f7eafbebeeabb734
+  ScoreState1;
+  ScoreState2;
+  chk_scoreState1:boolean;
+  chk_scoreState2:boolean;
   constructor(
     private route: Router,
     public afAuth: AngularFireAuth,
@@ -59,15 +57,12 @@ export class ChooesLevelPage implements OnInit {
           isEdit: false,
           myuid: e.payload.doc.data()['UID'.toString()],
           myid: e.payload.doc.data()['id'.toString()],
-          myname: e.payload.doc.data()['name'.toString()],
-          mysurname: e.payload.doc.data()['surname'.toString()],
-<<<<<<< HEAD
-          mytotal:e.payload.doc.data()['total']
-=======
           mystate1: e.payload.doc.data()['state1'.toString()],
           mystate2: e.payload.doc.data()['state2'.toString()],
           mystate3: e.payload.doc.data()['state3'.toString()],
->>>>>>> bf351d35f51a9d5123606f55f7eafbebeeabb734
+          myname: e.payload.doc.data()['name'.toString()],
+          mysurname: e.payload.doc.data()['surname'.toString()],
+          mytotal:e.payload.doc.data()['total']
         };
       });
      
@@ -80,13 +75,12 @@ export class ChooesLevelPage implements OnInit {
       console.log(name);
       let lastname = this.userlist[index].mysurname;
       console.log(lastname);
-<<<<<<< HEAD
       this.userEmail = name + ' ' + lastname;      
       
 
 
      let u = this.userlist[index].mytotal;
-     let to1;
+     
 
       console.log(u);
       if(u == 30){
@@ -95,7 +89,7 @@ export class ChooesLevelPage implements OnInit {
         this.total_ = u+35;
         console.log('15'+ this.total_);
         
-     }else if(u == '10'){
+     }else if(u == 10){
         this.total_ = 10+15;
      }else if( u <= 15 && u >10){
        this.total_ =  u + 30;
@@ -109,22 +103,15 @@ export class ChooesLevelPage implements OnInit {
 
       this.total_ori = u;
       console.log(this.total_ );
-      
-      
-=======
-      this.userEmail = name + ' ' + lastname;
-
       this.ScoreState1 = this.userlist[index].mystate1;
       console.log('score 1st =', this.ScoreState1);
-
       this.ScoreState2 = this.userlist[index].mystate2;
       console.log('score 2nd =', this.ScoreState2);
-
->>>>>>> bf351d35f51a9d5123606f55f7eafbebeeabb734
+      
       this.afAuth.user.subscribe((res) => {
         if (res != null){
           this.isAdmin = res.email;       
-
+          
         }else{
           console.log('logouted!');
         }

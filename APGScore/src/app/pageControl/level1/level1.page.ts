@@ -29,7 +29,8 @@ export class Level1Page implements OnInit {
     state3 : 0,
     total : 0
   };
-
+  total_:any;
+  total_ori:any;
   constructor(private route: Router, private myapi: ServiceApiService) {
     this.uid = localStorage.getItem('uid');
     console.log('uid = ' + this.uid);
@@ -41,6 +42,7 @@ export class Level1Page implements OnInit {
     this.quiz = JSON.parse(q);
     console.log('quiz =', this.quiz[0].problem, 'ans =', this.quiz[0].answer);
     console.log(JSON.parse(q));
+
   }
 
   ngOnInit() {
@@ -93,12 +95,40 @@ export class Level1Page implements OnInit {
     console.log('count =', this.quiz.length);
     console.log('catd =', this.quiz);
     this.status = '';
+
+    
+    let u =  this.std.state1;
+    console.log("u =");    
+    console.log(u);
+
+    this.total_ori = u;
+    if(u == 10){
+        this.total_ = u+90;
+    }else if(u == 5){
+      this.total_ = u+45;
+      console.log('15'+ this.total_);
+      
+   }else if(u == 1){
+      this.total_ = u+30;
+   }else if( u <= 5 && u >1){
+     this.total_ =  u + 15;
+   }else if( u<=10 && u >5){
+        this.total_= u+80;
+   }else if (u < 1 && u > 0){
+        this.total_ = u+30;
+   }else if (u == 0){
+     this.total_ = u;
+   }
+
   }
 
   setScore(url: string) {
+
+    
     console.log(url);
     let index = this.userlist.findIndex(std => std.myuid === this.uid);
     console.log('index:', index);
+
     if (this.std.state1 > this.userlist[index].mystate1) {
       let newrecord = {};
       newrecord['state1'] = this.std.state1;
@@ -106,6 +136,9 @@ export class Level1Page implements OnInit {
       this.myapi.updateData(this.userlist[index].id, newrecord); // update
       console.log(newrecord);
     }
+
+
+
 
     if (url === 'chooes-level'){
       this.random = Math.floor(Math.random() * 2) + 1;
@@ -118,11 +151,9 @@ export class Level1Page implements OnInit {
         localStorage.setItem('quiz', QUESTION2 + '');
       }
       console.log('quiz =', this.quiz);
-      this.route.navigateByUrl(`/${url}`);
-
+      this.route.navigate([`${url}`]);
     }else if (url ===  'level2'){
-      this.route.navigateByUrl(`/${url}`);
-
+      this.route.navigate([`${url}`]);
     }else if (url ===  'level1') {
       this.random = Math.floor(Math.random() * 2) + 1;
       console.log('rd =', this.random);
@@ -134,12 +165,10 @@ export class Level1Page implements OnInit {
         localStorage.setItem('quiz', QUESTION2 + '');
       }
       console.log('quiz =', this.quiz);
-      this.route.navigateByUrl(`/${url}`);
+      this.route.navigate([`${url}`]);
     }
   }
-
 }
-
 // code การเปลี่ยนปุ่ม เอาไปแทน ion-row เดิม
 // <div *ngIf="std.state1 !== 0 else Replay">
 //   <ion-row>
