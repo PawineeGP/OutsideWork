@@ -1,14 +1,17 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { AuthGuardGuard } from './Auth/auth-guard.guard';
 
 const routes: Routes = [
   {
-    path: 'home',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
+    path: 'chooes-level',
+    loadChildren: () => import('./pageControl/chooes-level/chooes-level.module').then( m => m.ChooesLevelPageModule),
+    canActivate: [AuthGuardGuard]
+ 
   },
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'chooes-level',
     pathMatch: 'full'
   },
   {
@@ -21,12 +24,14 @@ const routes: Routes = [
   },
   {
     path: 'video-tutorial',
-    loadChildren: () => import('./pageControl/video-tutorial/video-tutorial.module').then( m => m.VideoTutorialPageModule)
+    loadChildren: () => import('./pageControl/video-tutorial/video-tutorial.module').then( m => m.VideoTutorialPageModule),
+    canActivate: [AuthGuardGuard]
   },
-  {
-    path: 'chooes-level',
-    loadChildren: () => import('./pageControl/chooes-level/chooes-level.module').then( m => m.ChooesLevelPageModule)
-  },
+  // {
+  //   path: 'chooes-level',
+  //   loadChildren: () => import('./pageControl/chooes-level/chooes-level.module').then( m => m.ChooesLevelPageModule),
+  //   canActivate: [AuthGuardGuard]
+  // },
   {
     path: 'level1',
     loadChildren: () => import('./pageControl/level1/level1.module').then( m => m.Level1PageModule)
@@ -38,7 +43,11 @@ const routes: Routes = [
   {
     path: 'level3',
     loadChildren: () => import('./pageControl/level3/level3.module').then( m => m.Level3PageModule)
+  },  {
+    path: 'view-score',
+    loadChildren: () => import('./pageControl/view-score/view-score.module').then( m => m.ViewScorePageModule)
   },
+
 
 ];
 

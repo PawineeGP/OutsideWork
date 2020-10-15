@@ -2,6 +2,7 @@ import { ServiceApiService } from './../../service/service-api.service';
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Router } from '@angular/router';
+import { LoadingController } from '@ionic/angular';
 
 @Component({
   selector: 'app-login',
@@ -15,8 +16,8 @@ export class LoginPage implements OnInit {
   };
 
   userlist: any;
-
-  constructor(private route: Router, public afAuth: AngularFireAuth, private myapi: ServiceApiService,) { }
+  loading: any;
+  constructor(private route: Router, public afAuth: AngularFireAuth, private myapi: ServiceApiService, private loadingCtrl: LoadingController) { }
 
   ngOnInit() {
     this.myapi.Readdata().subscribe(data => {
@@ -28,9 +29,9 @@ export class LoginPage implements OnInit {
           myid: e.payload.doc.data()['id'.toString()],
           myname: e.payload.doc.data()['name'.toString()],
           mysurname: e.payload.doc.data()['surname'.toString()],
-          mystate1: e.payload.doc.data()['state1'.toString()],
-          mystate2: e.payload.doc.data()['state2'.toString()],
-          mystate3: e.payload.doc.data()['state3'.toString()],
+          mystate1: e.payload.doc.data()['state1'],
+          mystate2: e.payload.doc.data()['state2'],
+          mystate3: e.payload.doc.data()['state3'],
           mytotal: e.payload.doc.data()['total'.toString()]
         };
       });
@@ -39,6 +40,7 @@ export class LoginPage implements OnInit {
   }
   signin() {
     console.log(this.std);
+    this.showLoading();
     this.afAuth.signInWithEmailAndPassword(this.std.username + '@gmail.com', this.std.password)
       .then((res) => {
         this.afAuth.authState.subscribe(auth => {
@@ -47,18 +49,30 @@ export class LoginPage implements OnInit {
             let index = this.userlist.findIndex(std => std.myuid === auth.uid);
             if (this.userlist[index].mystate1 !== 0 || this.userlist[index].mystate2 !== 0 || this.userlist[index].mystate3 !== 0) {
               this.route.navigateByUrl('/chooes-level');
+              this.loading.dismiss();
             } else if (this.userlist[index].mystate1 === 0 || this.userlist[index].mystate2 === 0 || this.userlist[index].mystate3 === 0) {
               this.route.navigateByUrl('/video-tutorial');
+              this.loading.dismiss();
             }
           } else {
             console.log('logouted!');
+            this.loading.dismiss();
           }
         });
       })
       .catch((error) => {
         console.log('Errror : ');
+        
         console.log(error);
+         this.loading.dismiss();
       });
+  }
+
+  async showLoading() {
+    this.loading = await this.loadingCtrl.create({
+      message: 'กำลังดาวน์โหลด ...'
+    });
+    this.loading.present();
   }
 
 }

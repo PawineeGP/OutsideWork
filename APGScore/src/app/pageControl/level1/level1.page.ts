@@ -169,6 +169,7 @@ export class Level1Page implements OnInit {
     }
   }
 }
+<<<<<<< HEAD
 // code การเปลี่ยนปุ่ม เอาไปแทน ion-row เดิม
 // <div *ngIf="std.state1 !== 0 else Replay">
 //   <ion-row>
@@ -205,3 +206,6 @@ export class Level1Page implements OnInit {
 //     </ion-col>
 //   </ion-row>
 // </ng-template>
+=======
+
+>>>>>>> update

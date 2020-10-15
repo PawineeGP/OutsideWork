@@ -45,7 +45,7 @@ export class ChooesLevelPage implements OnInit {
     .then(() => {
       localStorage.setItem('uid', '');
       localStorage.setItem('quiz', '');
-      this.route.navigateByUrl('/home');
+      this.route.navigateByUrl('/login');
     });
   }
 
@@ -65,6 +65,7 @@ export class ChooesLevelPage implements OnInit {
           mytotal:e.payload.doc.data()['total']
         };
       });
+<<<<<<< HEAD
      
       console.log(this.userlist);
       let uid = localStorage.getItem('uid');
@@ -83,6 +84,17 @@ export class ChooesLevelPage implements OnInit {
      
 
       console.log(u);
+=======
+   
+      let uid = localStorage.getItem('uid');      
+      let index = this.userlist.findIndex(std => std.myuid === uid);    
+      let name = this.userlist[index].myname;    
+      let lastname = this.userlist[index].mysurname;     
+      this.userEmail = name + ' ' + lastname;           
+
+
+     let u = this.userlist[index].mytotal;      
+>>>>>>> update
       if(u == 30){
           this.total_ = u+70;
       }else if(u == 15){
@@ -102,6 +114,7 @@ export class ChooesLevelPage implements OnInit {
      }
 
       this.total_ori = u;
+<<<<<<< HEAD
       console.log(this.total_ );
       this.ScoreState1 = this.userlist[index].mystate1;
       console.log('score 1st =', this.ScoreState1);
@@ -111,6 +124,14 @@ export class ChooesLevelPage implements OnInit {
       this.afAuth.user.subscribe((res) => {
         if (res != null){
           this.isAdmin = res.email;       
+=======
+      this.ScoreState1 = this.userlist[index].mystate1;     
+      this.ScoreState2 = this.userlist[index].mystate2;      
+      this.afAuth.user.subscribe((res) => {
+        if (res != null){
+          this.isAdmin = res.email;       
+          console.log("admin",this.isAdmin);
+>>>>>>> update
           
         }else{
           console.log('logouted!');
@@ -152,11 +173,4 @@ export class ChooesLevelPage implements OnInit {
 
 }
 
-// code disable ด่าน เอาไปแทนบรรทัดที่ 11-17
-// <div id="choose_level" *ngIf="isAdmin !== 'admin@gmail.com' else admin" >
-//   <ion-button  size="large" type="submit" expand="block" (click)="state1()">ด่านที่ 1</ion-button>
-//   <div class="spacer" style="width: 300px; height: 10px;"></div>
-//   <ion-button  size="large" type="submit" expand="block" (click)="state2()" [disabled]="ScoreState1 === 0">ด่านที่ 2</ion-button>
-//   <div class="spacer" style="width: 300px; height: 10px;"></div>
-//   <ion-button  size="large" type="submit" expand="block" (click)="state3()" [disabled]="ScoreState1 === 0 || ScoreState2 === 0">ด่านที่ 3</ion-button>
-// </div>
+

@@ -1,26 +1,9 @@
 
 
 <ion-content padding >
-  <!-- <ion-button expand="full" color="dark" (click)="GetCurrentOrientation()">
-    Get Current orientation
-  </ion-button> <br>
-
-  <ion-button  expand="full" color="dark" (click)="setTpLandScapeOrientation()">
-    Set to Landscape 
-  </ion-button> <br>
-
-  <ion-button  expand="full" color="dark" (click)="AllowToRotate()">
-    Allow to Rotate
-  </ion-button> <br>
-
-  <ion-button  expand="full" color="dark" (click)="DetectOrienation()">
-   Detect Orientation Change
-  </ion-button> -->
-  <!-- <video src="../../../assets/video/1.mp4">
-
-  </video> -->
   <div id="container">
     <div class="fullscreen-bg">
+<<<<<<< HEAD
       <!-- width="320" height="240" -->
       <!-- <video class="video-tutorial" muted webkit-playsinline controls>
         <source src="../../../assets/video/video-tutorial.mp4" types='video/mp4; codecs="h.264"'>
@@ -30,15 +13,17 @@
       <video class="video-tutorial" muted [autoplay]="true" controls (timeupdate)="setCurrentTime($event)">
         <source src="../../../assets/video/video-tutorial.mp4" type="video/mp4" >
           <!-- Browser not supported -->
+=======
+      <video class="video-tutorial" [autoplay]="true" muted  controls  (timeupdate)="setCurrentTime($event)">
+        <source src="../../../assets/video/video-tutorial.mp4" type="video/mp4" >     
+>>>>>>> update
     </video>
     </div>
     <div  *ngIf="chk_btn">
       <ion-button class="btn btn-success" routerLink="/chooes-level">ไปที่แบบทดสอบ</ion-button>
     </div>
-    <div  *ngIf="!chk_btn">
-     
-    </div>
-   
+    <div  *ngIf="!chk_btn">     
+    </div>   
   </div>
   
 </ion-content>

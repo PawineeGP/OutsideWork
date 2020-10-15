@@ -4,6 +4,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
+import { LoadingController } from '@ionic/angular';
 
 @Component({
   selector: 'app-register',
@@ -21,20 +22,21 @@ export class RegisterPage implements OnInit {
     state3: 0,
     total: 0
   };
-
+  loading: any;
   constructor(
     private route: Router,
     public afAuth: AngularFireAuth,
     private afDatabase: AngularFireDatabase,
     private afStore: AngularFirestoreModule,
-    private myapi: ServiceApiService
+    private myapi: ServiceApiService,
+    private loadingCtrl: LoadingController
   ) { }
 
   ngOnInit() {
   }
   signup() {
     console.log(this.std);
-
+    this.showLoading();
     this.afAuth.createUserWithEmailAndPassword(this.std.stdCode + '@gmail.com', this.std.password)
       .then(() => {
         this.afAuth.authState.subscribe(auth => {
@@ -50,17 +52,32 @@ export class RegisterPage implements OnInit {
           record['total'] = this.std.total;
           this.myapi
             .createData(record)
+<<<<<<< HEAD
             .then(() => {
               this.route.navigateByUrl('/video-tutorial');
+=======
+            .then(() => {              
+              this.route.navigateByUrl('/video-tutorial');
+              this.loading.dismiss();
+>>>>>>> update
             })
             .catch(error => {
               console.log(error);
+              this.loading.dismiss();
             }
             );
         });
       })
       .catch((error) => {
         console.log(error);
+        this.loading.dismiss();
       });
+  }
+
+  async showLoading() {
+    this.loading = await this.loadingCtrl.create({
+      message: 'กำลังดาวน์โหลด ...'
+    });
+    this.loading.present();
   }
 }
