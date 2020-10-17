@@ -65,7 +65,6 @@ export class ChooesLevelPage implements OnInit {
           mytotal:e.payload.doc.data()['total']
         };
       });
-<<<<<<< HEAD
      
       console.log(this.userlist);
       let uid = localStorage.getItem('uid');
@@ -84,17 +83,6 @@ export class ChooesLevelPage implements OnInit {
      
 
       console.log(u);
-=======
-   
-      let uid = localStorage.getItem('uid');      
-      let index = this.userlist.findIndex(std => std.myuid === uid);    
-      let name = this.userlist[index].myname;    
-      let lastname = this.userlist[index].mysurname;     
-      this.userEmail = name + ' ' + lastname;           
-
-
-     let u = this.userlist[index].mytotal;      
->>>>>>> update
       if(u == 30){
           this.total_ = u+70;
       }else if(u == 15){
@@ -114,7 +102,6 @@ export class ChooesLevelPage implements OnInit {
      }
 
       this.total_ori = u;
-<<<<<<< HEAD
       console.log(this.total_ );
       this.ScoreState1 = this.userlist[index].mystate1;
       console.log('score 1st =', this.ScoreState1);
@@ -124,14 +111,6 @@ export class ChooesLevelPage implements OnInit {
       this.afAuth.user.subscribe((res) => {
         if (res != null){
           this.isAdmin = res.email;       
-=======
-      this.ScoreState1 = this.userlist[index].mystate1;     
-      this.ScoreState2 = this.userlist[index].mystate2;      
-      this.afAuth.user.subscribe((res) => {
-        if (res != null){
-          this.isAdmin = res.email;       
-          console.log("admin",this.isAdmin);
->>>>>>> update
           
         }else{
           console.log('logouted!');

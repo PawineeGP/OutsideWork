@@ -34,18 +34,23 @@ const routes: Routes = [
   // },
   {
     path: 'level1',
-    loadChildren: () => import('./pageControl/level1/level1.module').then( m => m.Level1PageModule)
+    loadChildren: () => import('./pageControl/level1/level1.module').then( m => m.Level1PageModule),
+    canActivate: [AuthGuardGuard]
   },
   {
     path: 'level2',
-    loadChildren: () => import('./pageControl/level2/level2.module').then( m => m.Level2PageModule)
+    loadChildren: () => import('./pageControl/level2/level2.module').then( m => m.Level2PageModule),
+    canActivate: [AuthGuardGuard]
   },
   {
     path: 'level3',
-    loadChildren: () => import('./pageControl/level3/level3.module').then( m => m.Level3PageModule)
-  },  {
+    loadChildren: () => import('./pageControl/level3/level3.module').then( m => m.Level3PageModule),
+    canActivate: [AuthGuardGuard]
+  },
+  {
     path: 'view-score',
-    loadChildren: () => import('./pageControl/view-score/view-score.module').then( m => m.ViewScorePageModule)
+    loadChildren: () => import('./pageControl/view-score/view-score.module').then( m => m.ViewScorePageModule),
+    canActivate: [AuthGuardGuard]
   },
 
 

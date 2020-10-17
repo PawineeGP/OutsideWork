@@ -1,24 +1,5 @@
 <ion-content padding class="bg-chooes-level">
-  <div class="spacer" style="width: 300px; height: 70px;"></div>
-<<<<<<< HEAD
-
-  <div class="totalScore">
-    <ion-card >
-      <ion-grid>
-        <ion-row>
-          <ion-col size="3">
-
-            <circle-progress [unitsFontWeight]="800" [percent]="(total_)" [radius]="30" [maxPercent]="200"
-            [units]="'point'" [unitsColor]="'rgb(121, 38, 5)'" [title]="(total_ori)" [subtitle]="20"
-            [titleFontSize]="30" [titleFontWeight]="1000" [subtitleFontSize]="28" [subtitleFontWeight]="900"
-            [space]="-5" [outerStrokeWidth]="5" [outerStrokeColor]="'#24a368'" [innerStrokeColor]="'#FFF'"
-            [showBackground]="true" [animation]="true" [innerStrokeWidth]="5" [titleColor]="'#483500'"
-            [subtitleColor]="'#90240e'" [showTitle]="true" [showSubtitle]="false" [showInnerStroke]="true"
-            [startFromZero]="false" [animationDuration]="2000" [showUnits]="true" [unitsFontSize]="8"
-            [unitsFontWeight]="800">
-            </circle-progress>
-
-=======
+  <div class="spacer" style="width: 300px; height: 30px;"></div>
   <div class="totalScore">
     <ion-card>
       <ion-grid>
@@ -33,123 +14,62 @@
               [startFromZero]="false" [animationDuration]="2000" [showUnits]="true" [unitsFontSize]="8"
               [unitsFontWeight]="800">
             </circle-progress>
->>>>>>> update
           </ion-col>
           <ion-col>
             <br>
             <p> <b>สวัสดี </b> | {{userEmail}}
-<<<<<<< HEAD
-              <!-- <br>
-              <b>กำหนดส่ง</b> |  -->
-=======
->>>>>>> update
             </p>
           </ion-col>
         </ion-row>
       </ion-grid>
     </ion-card>
-<<<<<<< HEAD
-    <!-- <ion-grid>
-      <ion-row>
-        <ion-col>
-          <h4 style="text-align:center;">{{userEmail}}</h4>
-        </ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col>
-          <div class="total">
-            <circle-progress [unitsFontWeight]="800" [percent]="(total_)" [radius]="50" [maxPercent]="200"
-              [units]="'คะแนนรวม'" [unitsColor]="'rgb(121, 38, 5)'" [title]="(total_ori)" [subtitle]="20"
-              [titleFontSize]="30" [titleFontWeight]="1000" [subtitleFontSize]="28" [subtitleFontWeight]="900"
-              [space]="-5" [outerStrokeWidth]="5" [outerStrokeColor]="'#24a368'" [innerStrokeColor]="'#FFF'"
-              [showBackground]="true" [animation]="true" [innerStrokeWidth]="5" [titleColor]="'#483500'"
-              [subtitleColor]="'#90240e'" [showTitle]="true" [showSubtitle]="false" [showInnerStroke]="true"
-              [startFromZero]="false" [animationDuration]="2000" [showUnits]="true" [unitsFontSize]="8"
-              [unitsFontWeight]="800">
-
-            </circle-progress>
-          </div>
-
-        </ion-col>
-
-      </ion-row>
-    </ion-grid> -->
-=======
->>>>>>> update
   </div>
   <div class="spacer" style="width: 300px; height: 20px;"></div>
   <div class="cards">
     <div class="grid-full">
       <ion-row>
+
+        <ion-col>
+          <ion-card class="c-6" routerLink="/video-tutorial">
+            <p>
+              <ion-icon name="videocam-outline"></ion-icon>
+            </p>
+            <h4 green style="font-size: 15px;">การเรียนรู้</h4>
+          </ion-card>
+        </ion-col>
+
+
         <ion-col (click)="state1()">
           <ion-card class="c-1">
-            <p>ด่านที่</p>
-            <h1 orange>1 </h1>
+            <p>แบบทดสอบ</p>
+            <h1 orange>ด่านที่ 1 </h1>
           </ion-card>
         </ion-col>
 
         <ion-col>
           <ion-card class="c-2" (click)="state2()" [disabled]="ScoreState1 === 0">
-            <p>ด่านที่</p>
-            <h1 grey>2</h1>
+            <p>แบบทดสอบ</p>
+            <h1 grey>ด่านที่ 2</h1>
           </ion-card>
         </ion-col>
 
 
         <ion-col *ngIf="!chk_scoreState2">
           <ion-card class="c-3" (click)="state3()" [disabled]="ScoreState1 === 0 || ScoreState2 === 0">
-            <p>ด่านที่</p>
-            <h1 green>3 </h1>
-          </ion-card>
-        </ion-col>
-<<<<<<< HEAD
-        
-=======
-
->>>>>>> update
-        <ion-col *ngIf="chk_admin">
-          <ion-card class="c-4">
-            <p>ตารางคะแนน</p>
-            <h1 green>นักศึกษา</h1>
-          </ion-card>
-        </ion-col>
-<<<<<<< HEAD
-
-        <ion-col>
-          <ion-card class="c-5">
-            <p><ion-icon name="log-out-outline"></ion-icon></p>
-            <h4 green style="font-size: 16px;">ออกจากระบบ</h4><br>
+            <p>แบบทดสอบ</p>
+            <h1 green>ด่านที่ 3 </h1>
           </ion-card>
         </ion-col>
 
-
-
-      </ion-row>
-
-    </div>
-  </div>
-
-
-  <!-- <div class="btn-logout">
-    <ion-button class="btn btn-success" style="text-align:center;" (click)="signout()">ออกจากระบบ</ion-button>
-  </div> -->
-=======
-        
-        <ion-col>
-          <ion-card class="c-6" routerLink="/video-tutorial">
-            <p>
-              <ion-icon name="videocam-outline"></ion-icon>
-            </p>
-            <h4 green style="font-size: 10px;">ดูวิดีโอสอน</h4><br>
-          </ion-card>
-        </ion-col>
-
-        <ion-col *ngIf="isAdmin === 'admin@gmail.com'">
+      
+        <!-- *ngIf="isAdmin === 'admin@gmail.com'" -->
+        <!-- *ngIf="chk_admin" -->
+        <ion-col *ngIf="isAdmin === 'admin@gmail.com'" >
           <ion-card class="c-7" routerLink="/view-score">
             <p>
               <ion-icon name="apps-outline"></ion-icon>
             </p>
-            <h4 green style="font-size: 10px;">ตารางคะแนน</h4><br>
+            <h4 green style="font-size: 15px;">TOTAL SCORE</h4>
           </ion-card>
         </ion-col>
 
@@ -159,11 +79,10 @@
             <p>
               <ion-icon name="log-out-outline"></ion-icon>
             </p>
-            <h4 green style="font-size: 10px;">ออกจากระบบ</h4><br>
+            <h4 green style="font-size: 15px;">ออกจากระบบ</h4>
           </ion-card>
         </ion-col>
       </ion-row>
     </div>
   </div>
->>>>>>> update
 </ion-content>

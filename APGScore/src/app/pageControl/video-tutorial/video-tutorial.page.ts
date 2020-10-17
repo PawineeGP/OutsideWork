@@ -10,48 +10,52 @@ import { Component, OnInit } from '@angular/core';
 export class VideoTutorialPage implements OnInit {
   currentTime: number;
   chk_btn: boolean = true;
+
+  chk_showVideo:boolean= true;
   constructor(private route: Router, private afAuth: AngularFireAuth) {
-<<<<<<< HEAD
-      
-   }
-  
-=======
 
   }
-
->>>>>>> update
 
   setCurrentTime(data) {
     // console.log("data");
 
     // console.log(data);
-<<<<<<< HEAD
-    
-     this.currentTime = data.target.currentTime;
-     console.log("current Time :");
-     console.log(this.currentTime);
-    
-     if(this.currentTime >= 115.686231){
-      console.log("Button show");
-      this.chk_btn = true;      
-    }else if(!this.currentTime || this.currentTime == 0.00){
-      this.chk_btn = false;  
-    }else{
-      this.chk_btn = false; 
-=======
 
     this.currentTime = data.target.currentTime;
-    //  console.log("current Time :");
+    //  console.log("current Time1 :");
+    //  console.log(this.currentTime);
+
+    if (this.currentTime == 0.00) {
+      // console.log("Button show");
+      this.chk_showVideo =true;
+      this.chk_btn = false;
+    }else if(this.currentTime == 200.8){
+      this.chk_showVideo =false;
+      this.chk_btn = true;
+    } 
+    // else if (!this.currentTime || this.currentTime == 0.00) {
+    //   this.chk_showVideo = false;
+    // } else {
+    //   this.chk_showVideo = false;
+    // }
+
+  }
+
+
+  setCurrentTime2(data) {
+    // console.log("data");
+
+    // console.log(data);
+
+    this.currentTime = data.target.currentTime;
+    //  console.log("current Time2 :");
     //  console.log(this.currentTime);
 
     if (this.currentTime >= 115.686231) {
-      // console.log("Button show");
-      this.chk_btn = true;
+      console.log("Button show");
+      this.chk_btn = false;
     } else if (!this.currentTime || this.currentTime == 0.00) {
-      this.chk_btn = false;
-    } else {
-      this.chk_btn = false;
->>>>>>> update
+      this.chk_btn = true;
     }
 
   }

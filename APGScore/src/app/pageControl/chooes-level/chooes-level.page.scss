@@ -6,7 +6,7 @@
 // }
 
 .bg-chooes-level {
-  --background: url(../../../assets/bg/chooes-lavel.png) 0 0/100% 100% no-repeat;
+  --background: url(../../../assets/bg/bg-chooes1.png) 0 0/100% 100% no-repeat;
 
   .cards {
     .grid-full {
@@ -17,6 +17,7 @@
               text-align: center;
               font-family: "Athiti", sans-serif;
               margin-top: -5px;
+              font-size: 16px;
             }
 
             h4 {
@@ -29,18 +30,8 @@
             p {
               font-family: 'Athiti', sans-serif;
               text-align: center;
-              font-size: 16px;
+              font-size: 18px;
               ;
-<<<<<<< HEAD
-=======
-            }
-
-            p ion-icon{
-              font-family: 'Athiti', sans-serif;
-              text-align: center;
-              font-size: 25px;
-              ;
->>>>>>> update
             }
           }
         }
@@ -61,12 +52,7 @@
   }
 
   .c-1 {
-<<<<<<< HEAD
     --background: -webkit-linear-gradient(-55deg, rgb(72, 173, 85) 35%, #7be489 100%) !important;
-=======
-    --background: -webkit-linear-gradient(-55deg, rgb(12, 170, 46) 35%,rgb(47, 180, 58) 100%) !important;
-    // --background: -webkit-linear-gradient(-55deg, rgb(72, 173, 85) 35%,rgb(72, 173, 85)  100%) !important;
->>>>>>> update
     color: #FFF;
   }
 
@@ -90,20 +76,11 @@
   //   color:#FFF;
   // }
   .c-5 {
-<<<<<<< HEAD
     --background: -webkit-linear-gradient(-55deg, rgb(156, 9, 9) 35%,rgb(233, 86, 86) 100%) !important;
-=======
-    --background: -webkit-linear-gradient(-55deg, rgb(156, 9, 41) 35%,rgba(192, 34, 60, 0.884) 100%) !important;
->>>>>>> update
     color: #FFF;
    
   }
 
-<<<<<<< HEAD
-
-  .c-6 {
-    --background: -webkit-linear-gradient(-55deg, rgb(79, 151, 245) 35%, rgb(79, 151, 245) 100%) !important;
-=======
   .c-7 {
     --background: -webkit-linear-gradient(-55deg, rgb(173, 0, 121) 35%,rgb(173, 0, 121) 100%) !important;
     color: #FFF;
@@ -113,7 +90,6 @@
   .c-6 {
     // --background: -webkit-linear-gradient(-55deg, rgb(79, 151, 245) 35%, rgb(79, 151, 245) 100%) !important;
     --background: -webkit-linear-gradient(-55deg, rgb(177, 75, 236) 35%, rgb(192, 79, 245) 100%) !important;
->>>>>>> update
     color: #FFF;
   }
 }
@@ -240,7 +216,6 @@ circle-progress {
     ion-grid {
       ion-title {
         font-family: "Athiti", sans-serif;
-<<<<<<< HEAD
       }
 
       circle-progress {
@@ -249,16 +224,6 @@ circle-progress {
         color: #fff;
       }
 
-=======
-      }
-
-      circle-progress {
-        padding: 0px;
-        font-family: "Athiti", sans-serif;
-        color: #fff;
-      }
-
->>>>>>> update
       ion-label {
         padding: 15px;
         margin-top: -120px;

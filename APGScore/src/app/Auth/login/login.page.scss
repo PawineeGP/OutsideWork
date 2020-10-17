@@ -1,10 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Athiti&display=swap');
 
-*{
-    margin: 0;
-    padding: 0;
-   
-}
+
 h1{
     color: rgb(253, 99, 38);
     font-family: 'Athiti', sans-serif;
@@ -33,6 +29,7 @@ h6{
 
 .background-login{
     --background: url(../../../assets/bg/login6.png) 0 0/100% 100% no-repeat;
+    font-family: 'Athiti', sans-serif;
 }
 
 ion-button{

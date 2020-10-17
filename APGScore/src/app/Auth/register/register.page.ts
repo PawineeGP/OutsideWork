@@ -52,14 +52,9 @@ export class RegisterPage implements OnInit {
           record['total'] = this.std.total;
           this.myapi
             .createData(record)
-<<<<<<< HEAD
-            .then(() => {
-              this.route.navigateByUrl('/video-tutorial');
-=======
             .then(() => {              
               this.route.navigateByUrl('/video-tutorial');
               this.loading.dismiss();
->>>>>>> update
             })
             .catch(error => {
               console.log(error);
