@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { ViewScorePageRoutingModule } from './view-score-routing.module';
 
 import { ViewScorePage } from './view-score.page';
+import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    ViewScorePageRoutingModule
+    ViewScorePageRoutingModule,
+    NgxDatatableModule,
   ],
   declarations: [ViewScorePage]
 })
