@@ -1,3 +1,4 @@
+import { ServiceApiService } from './../../service/service-api.service';
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 
 @Component({
@@ -13,7 +14,9 @@ export class ViewScorePage implements OnInit {
   public columns: any;
   public rows: any;
   tablestyle = ' bootstrap';
-  constructor() {
+  userlist = [];
+
+  constructor(private myapi: ServiceApiService) {
 
     this.columns = [
       { name: 'Name' },
@@ -86,6 +89,24 @@ export class ViewScorePage implements OnInit {
   }
 
   ngOnInit() {
+    // read data from database
+    this.myapi.Readdata().subscribe(data => {
+      this.userlist = data.map(e => {
+        return {
+          id: e.payload.doc.id,
+          isEdit: false,
+          myuid: e.payload.doc.data()['UID'.toString()],
+          myid: e.payload.doc.data()['id'.toString()],
+          myname: e.payload.doc.data()['name'.toString()],
+          mysurname: e.payload.doc.data()['surname'.toString()],
+          mystate1: e.payload.doc.data()['state1'.toString()],
+          mystate2: e.payload.doc.data()['state2'.toString()],
+          mystate3: e.payload.doc.data()['state3'.toString()],
+          mytotal: e.payload.doc.data()['total'.toString()],
+        };
+      });
+      console.log('userlist =', this.userlist);
+    });
   }
 
 }

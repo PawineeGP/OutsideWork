@@ -1,9 +1,161 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>level2</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content padding>
+  <div id="container">
+    <div *ngIf="quiz.length > 0">
+      <div *ngFor="let item of quiz, let i = index;">
+        <div *ngIf="quiz.length === (quiz.length - i)">
+          <section>
+            <ion-radio-group [(ngModel)]="status">
+              <ion-list-header>
+                <ion-label>
+                  <h2>{{ quiz[i].problem }}</h2>
+                </ion-label>
+              </ion-list-header>
+              <div class="spacer" style="width: 300px; height: 30px;"></div>
+              <div class="cards">
+                <div class="grid-full">
+                  <ion-row>
 
-<ion-content>
+                    <ion-col>
+                      <div>
+                        <input type="radio" id="control_01" name="select" (click)="onCheck('1')" slot="start" value="1">
+                        <label for="control_01">
+                          <p>{{ quiz[i].option1 }}</p>
+                        </label>
+                      </div>
+                    </ion-col>
+
+                    <ion-col>
+                      <div>
+                        <input type="radio" id="control_02" name="select" (click)="onCheck('2')" slot="start" value="2">
+                        <label for="control_02">
+
+                          <p>{{ quiz[i].option2 }}</p>
+                        </label>
+                      </div>
+                    </ion-col>
+
+                    <ion-col>
+                      <div>
+                        <input type="radio" id="control_03" name="select" (click)="onCheck('3')" slot="start" value="3">
+                        <label for="control_03">
+
+                          <p>{{ quiz[i].option3 }}</p>
+                        </label>
+                      </div>
+                    </ion-col>
+
+                    <ion-col>
+                      <div>
+                        <input type="radio" id="control_04" name="select" (click)="onCheck('4')" slot="start" value="4">
+                        <label for="control_04">
+
+                          <p>{{ quiz[i].option4 }}</p>
+                        </label>
+                      </div>
+                    </ion-col>
+                  </ion-row>
+                </div>
+              </div>
+              <div>
+                <ion-row>
+                  <ion-col style="padding-left: 75%;">
+                    <ion-button color="success" [disabled]="status === ''" (click)="next(i)">
+                      <ion-icon slot="end" name="arrow-forward-outline"></ion-icon>
+                      ตกลง
+                    </ion-button>
+                  </ion-col>
+                </ion-row>
+              </div>
+            </ion-radio-group>
+          </section>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <!-- <div *ngIf="quiz.length > 0">
+      <div *ngFor="let item of quiz, let i = index;" >
+        <ion-list *ngIf="quiz.length === (quiz.length - i)" >
+          <ion-radio-group [(ngModel)]="status">          
+            <ion-list-header>
+              <ion-label><h2>{{ quiz[i].problem }}</h2></ion-label>
+            </ion-list-header>
+        
+            <ion-item>
+              <ion-label>{{ quiz[i].option1 }}</ion-label>
+              <ion-radio (click)="onCheck('1')" slot="start" value="1" type="hidden"></ion-radio>
+            </ion-item>
+        
+            <ion-item>
+              <ion-label>{{ quiz[i].option2 }}</ion-label>
+              <ion-radio (click)="onCheck('2')" slot="start" value="2"></ion-radio>
+            </ion-item>
+        
+            <ion-item>
+              <ion-label>{{ quiz[i].option3 }}</ion-label>
+              <ion-radio (click)="onCheck('3')" slot="start" value="3"></ion-radio>
+            </ion-item>
+      
+            <ion-item>
+              <ion-label>{{ quiz[i].option4 }}</ion-label>
+              <ion-radio (click)="onCheck('4')" slot="start" value="4"></ion-radio>
+            </ion-item>
+          </ion-radio-group>
+          <div>
+            <ion-row>
+              <ion-col style="padding-left: 75%;">
+                <ion-button color="success" [disabled]="status === ''" (click)="next(i)">
+                  <ion-icon slot="end" name="arrow-forward-outline"></ion-icon>
+                  ตกลง
+                </ion-button>
+              </ion-col>
+            </ion-row>
+          </div>
+        </ion-list>
+      </div>
+    </div>  -->
+
+  <div style="text-align: center;" *ngIf="quiz.length === 0">
+    <img style="opacity: 0.5;" src="../../../assets/icon/complete1.png" alt="">
+    <h2>คะแนนที่ได้: {{std.state2}}/7</h2>
+    <div *ngIf="std.state2 !== 0 else Replay">
+      <ion-row>
+        <ion-col>
+          <ion-button  color="primary" (click)="setScore('chooes-level')">
+            <ion-icon slot="end" name="home-outline"></ion-icon>
+            กลับหน้าหลัก
+          </ion-button>
+        </ion-col>
+
+        <ion-col>
+          <ion-button  color="primary" (click)="setScore('level3')" >
+            <ion-icon slot="end" name="chevron-forward-outline"></ion-icon>
+            ด่านต่อไป
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </div>
+
+    <ng-template #Replay>
+      <ion-row>
+        <ion-col>
+          <ion-button  color="primary" (click)="setScore('chooes-level')">
+            <ion-icon slot="end" name="home-outline"></ion-icon>
+            กลับหน้าหลัก
+          </ion-button>
+        </ion-col>
+
+        <ion-col>
+          <ion-button  color="primary" (click)="setScore('level2')" >
+            <ion-icon slot="end" name="chevron-forward-outline"></ion-icon>
+            เล่นอีกครั้ง
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ng-template>
+  </div>
 
 </ion-content>
