@@ -176,7 +176,7 @@ export class Level1Page implements OnInit {
             // console.log('Cancel clicked');
           }
         }
-      ],
+      ],backdropDismiss: false
     });
     await alert.present();
   }
@@ -198,7 +198,7 @@ export class Level1Page implements OnInit {
             // console.log('Cancel clicked');
           }
         }
-      ],
+      ],backdropDismiss: false
      
     });
     await alert.present();

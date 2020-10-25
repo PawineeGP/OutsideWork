@@ -24,15 +24,15 @@ export class Level2Page implements OnInit {
     username: '',
     lastname: '',
     password: '',
-    state1 : 0,
-    state2 : 0,
-    state3 : 0,
-    total : 0
+    state1: 0,
+    state2: 0,
+    state3: 0,
+    total: 0
   };
   total_: any;
   total_ori: any;
 
-  constructor(private route: Router, private myapi: ServiceApiService, private alertCtrl:AlertController) {
+  constructor(private route: Router, private myapi: ServiceApiService, private alertCtrl: AlertController) {
     this.uid = localStorage.getItem('uid');
     console.log('uid = ' + this.uid);
 
@@ -71,12 +71,14 @@ export class Level2Page implements OnInit {
   next(i) {
     console.log('OK status:', this.status);
     if (this.quiz[i].answer === this.status) {
-      this.correct();
-      this.std.state2 += 1;
+      this.correct(); 
+      
       console.log('score =', this.std.state2);
     } else {
       this.result_was_wrong(this.quiz[i].txt);
-      this.std.state2 += 0;
+      
+      console.log(this.quiz[i].txt);
+      
       console.log('score =', this.std.state2);
     }
     // this.quiz.splice(0, 1);
@@ -84,29 +86,27 @@ export class Level2Page implements OnInit {
     // console.log('catd =', this.quiz);
     // this.status = '';
 
-    
-    let u =  this.std.state1;
-    console.log("u =");    
+
+    let u = this.std.state2;
+    console.log("u =");
     console.log(u);
 
     this.total_ori = u;
-    if(u == 10){
-        this.total_ = u+90;
-    }else if(u == 5){
-      this.total_ = u+45;
-      console.log('15'+ this.total_);
-      
-   }else if(u == 1){
-      this.total_ = u+30;
-   }else if( u <= 5 && u >1){
-     this.total_ =  u + 15;
-   }else if( u<=10 && u >5){
-        this.total_= u+80;
-   }else if (u < 1 && u > 0){
-        this.total_ = u+30;
-   }else if (u == 0){
-     this.total_ = u;
-   }
+    if (u == 7) {
+      this.total_ = u + 93;
+    } else if (u == 4) {
+      this.total_ = u + 46;
+    } else if (u == 1) {
+      this.total_ = u + 35;
+    } else if (u <= 4 && u > 1) {
+      this.total_ = u + 16;
+    } else if (u <= 7 && u > 4) {
+      this.total_ = u + 85;
+    } else if (u < 1 && u > 0) {
+      this.total_ = u + 35;
+    } else if (u == 0) {
+      this.total_ = u;
+    }
 
   }
 
@@ -123,7 +123,7 @@ export class Level2Page implements OnInit {
       console.log(newrecord);
     }
 
-    if (url === 'chooes-level'){
+    if (url === 'chooes-level') {
       this.random = Math.floor(Math.random() * 2) + 1;
       console.log('rd =', this.random);
       if (this.random === 1) {
@@ -135,9 +135,9 @@ export class Level2Page implements OnInit {
       }
       console.log('quiz =', this.quiz);
       this.route.navigate([`${url}`]);
-    }else if (url ===  'level3'){
+    } else if (url === 'level3') {
       this.route.navigate([`${url}`]);
-    }else if (url ===  'level2') {
+    } else if (url === 'level2') {
       this.random = Math.floor(Math.random() * 2) + 1;
       console.log('rd =', this.random);
       if (this.random === 1) {
@@ -159,9 +159,10 @@ export class Level2Page implements OnInit {
       message: 'This is an alert message.',
       buttons: [
         {
-          text:'OK',
-          role:'ok',
+          text: 'OK',
+          role: 'ok',
           handler: () => {
+            this.std.state2 += 1;    
             this.quiz.splice(0, 1);
             console.log('count =', this.quiz.length);
             console.log('catd =', this.quiz);
@@ -169,7 +170,7 @@ export class Level2Page implements OnInit {
             // console.log('Cancel clicked');
           }
         }
-      ],
+      ],backdropDismiss: false
     });
     await alert.present();
   }
@@ -178,12 +179,13 @@ export class Level2Page implements OnInit {
     let alert = await this.alertCtrl.create({
       header: 'คุณตอบผิด',
       subHeader: 'เฉลย',
-      message: txt,
+      message: txt,      
       buttons: [
         {
-          text:'OK',
-          role:'ok',
+          text: 'OK',
+          role: 'ok',
           handler: () => {
+            this.std.state2 += 0;   
             this.quiz.splice(0, 1);
             console.log('count =', this.quiz.length);
             console.log('catd =', this.quiz);
@@ -192,7 +194,8 @@ export class Level2Page implements OnInit {
           }
         }
       ],
-     
+      backdropDismiss: false
+
     });
     await alert.present();
   }

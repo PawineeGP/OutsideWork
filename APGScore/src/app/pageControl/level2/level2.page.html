@@ -85,7 +85,7 @@
 
       </circle-progress>
       <div class="spacer" style="width: 300px; height: 40px;"></div>
-      <div *ngIf="std.state1 !== 0 else Replay">
+      <div *ngIf="std.state2 !== 0 else Replay">
         <ion-row>
           <ion-col>
             <ion-button color="primary" (click)="setScore('chooes-level')">
@@ -95,7 +95,7 @@
           </ion-col>
 
           <ion-col>
-            <ion-button color="primary">
+            <ion-button color="primary" (click)="setScore('level3')">
               <!-- <ion-button color="primary" (click)="setScore('level2')"> -->
               <ion-icon slot="end" name="chevron-forward-outline"></ion-icon>
               ด่านต่อไป
