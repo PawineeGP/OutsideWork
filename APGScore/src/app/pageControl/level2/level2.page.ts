@@ -71,16 +71,18 @@ export class Level2Page implements OnInit {
   next(i) {
     console.log('OK status:', this.status);
     if (this.quiz[i].answer === this.status) {
+      this.correct();
       this.std.state2 += 1;
       console.log('score =', this.std.state2);
     } else {
+      this.result_was_wrong(this.quiz[i].txt);
       this.std.state2 += 0;
       console.log('score =', this.std.state2);
     }
-    this.quiz.splice(0, 1);
-    console.log('count =', this.quiz.length);
-    console.log('catd =', this.quiz);
-    this.status = '';
+    // this.quiz.splice(0, 1);
+    // console.log('count =', this.quiz.length);
+    // console.log('catd =', this.quiz);
+    // this.status = '';
 
     
     let u =  this.std.state1;
