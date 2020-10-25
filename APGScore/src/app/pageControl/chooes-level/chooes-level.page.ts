@@ -1,3 +1,5 @@
+import { Q3SET2, Q3SET1 } from './../../mock/mock-question3';
+import { Question3 } from './../../model/question3';
 import { QUESTION1, QUESTION2 } from './../../mock/mock-question';
 import { Question } from './../../model/question';
 import { ServiceApiService } from './../../service/service-api.service';
@@ -17,7 +19,10 @@ export class ChooesLevelPage implements OnInit {
   userlist: any;
   isAdmin: string;
 
-  quiz: Question[];
+  quiz1: Question[];
+  quiz2: Question[];
+  quiz3: Question3[];
+  
   random = 0;
   total_: any;
   total_ori: any;
@@ -48,6 +53,8 @@ export class ChooesLevelPage implements OnInit {
       .then(() => {
         localStorage.setItem('uid', '');
         localStorage.setItem('quiz', '');
+        localStorage.setItem('quiz2', '');
+        localStorage.setItem('quiz3', '');
         this.route.navigateByUrl('/login');
       });
   }
@@ -151,7 +158,7 @@ export class ChooesLevelPage implements OnInit {
       // this.quiz = QUESTION2;
       localStorage.setItem('quiz', JSON.stringify(QUESTION2) + '');
     }
-    console.log('QuIz =', this.quiz);
+    // console.log('QuIz =', this.quiz1);
     this.route.navigateByUrl('/level1');
   }
 
@@ -165,12 +172,22 @@ export class ChooesLevelPage implements OnInit {
       // this.quiz = QUESTION2;
       localStorage.setItem('quiz2', JSON.stringify(SET2) + '');
     }
-    console.log('QuIz2 =', this.quiz);
+    // console.log('QuIz2 =', this.quiz);
     this.route.navigateByUrl('/level2');
 
   }
 
   state3() {
+    this.random = Math.floor(Math.random() * 2) + 1;
+    console.log('rd =', this.random);
+    if (this.random === 1) {
+      // this.quiz = QUESTION1;
+      localStorage.setItem('quiz3', JSON.stringify(Q3SET1) + '');
+    } else if (this.random === 2) {
+      // this.quiz = QUESTION2;
+      localStorage.setItem('quiz3', JSON.stringify(Q3SET2) + '');
+    }
+    // console.log('QuIz2 =', this.quiz);
     this.route.navigateByUrl('/level3');
 
   }
