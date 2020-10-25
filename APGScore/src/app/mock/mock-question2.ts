@@ -7,7 +7,8 @@ export const SET1: Question[] = [
         option2: 'ข. 8 คะแนน',
         option3: 'ค. 9 คะแนน',
         option4: 'ง. 10 คะแนน',
-        answer: '4'
+        answer: '4',
+        txt:'ง. 10 คะแนน'
     },
     {
         id: 2,
@@ -16,7 +17,8 @@ export const SET1: Question[] = [
         option2: 'ข. 7 คะแนน',
         option3: 'ค. 8 คะแนน',
         option4: 'ง. 9 คะแนน',
-        answer: '3'
+        answer: '3',
+        txt:'ค. 8 คะแนน'
     },
     {
         id: 3,
@@ -25,7 +27,8 @@ export const SET1: Question[] = [
         option2: 'ข. 5 คะแนน',
         option3: 'ค. 6 คะแนน',
         option4: 'ง. 7 คะแนน',
-        answer: '2'
+        answer: '2',
+        txt:'ข. 5 คะแนน'
     },
     {
         id: 4,
@@ -34,7 +37,8 @@ export const SET1: Question[] = [
         option2: 'ข. 2 คะแนน',
         option3: 'ค. 3 คะแนน',
         option4: 'ง. 4 คะแนน',
-        answer: '1'
+        answer: '1',
+        txt:'ก. 1 คะแนน'
     },
     {
         id: 5,
@@ -43,7 +47,8 @@ export const SET1: Question[] = [
         option2: 'ข. ใส่ Endotracheal tube เนื่องจากทารก ต้องได้รับออกซิเจนเพิ่มขึ้น',
         option3: 'ค. Suction และ ให้ออกซิเจน เนื่องจากทารกมีภาวะ Birth asphyxia',
         option4: 'ง. Suction และ Keep warm เนื่องจากทารกสามารถปรับตัวได้',
-        answer: '4'
+        answer: '4',
+        txt:'ง. Suction และ Keep warm เนื่องจากทารกสามารถปรับตัวได้'
     },
     {
         id: 6,
@@ -52,7 +57,8 @@ export const SET1: Question[] = [
         option2: 'ข. ดูดสารคัดหลั่งในปาก จมูก และกระตุ้นให้ร้องด้วยการลูบหลัง',
         option3: 'ค. ดูดสารคัดหลั่งในปาก จมูก เช็ดตัวกระตุ้น และให้ Oxygen แรงดันบวก',
         option4: 'ง. ดูดสารคัดหลั่งในปาก จมูก ให้ Oxygen แรงดันบวกร่วมกับช่วยนวดหัวใจ',
-        answer: '1'
+        answer: '1',
+        txt:'ก. ดูดสารคัดหลั่งในปาก จมูก และให้ Oxygen tubing'
     },
     {
         id: 7,
@@ -61,7 +67,8 @@ export const SET1: Question[] = [
         option2: 'ข. Suction เช็ดตัวกระตุ้น และให้ Oxygen แรงดันบวก',
         option3: 'ค. จัดท่าเปิดทางเดินหายใจให้โล่ง และให้ Oxygen แรงดันบวก',
         option4: 'ง. Chest compression ร่วมกับให้ Oxygen แรงดันบวก',
-        answer: '4'
+        answer: '4',
+        txt:'ง. Chest compression ร่วมกับให้ Oxygen แรงดันบวก'
     },
 ];
 
@@ -73,7 +80,8 @@ export const SET2: Question[] = [
         option2: 'ข. 7 คะแนน',
         option3: 'ค. 8 คะแนน',
         option4: 'ง. 9 คะแนน',
-        answer: '4'
+        answer: '4',
+        txt:'ง. 9 คะแนน'
     },
     {
         id: 2,
@@ -82,7 +90,8 @@ export const SET2: Question[] = [
         option2: 'ข. 6 คะแนน',
         option3: 'ค. 7 คะแนน',
         option4: 'ง. 8 คะแนน',
-        answer: '3'
+        answer: '3',
+        txt:'ค. 7 คะแนน'
     },
     {
         id: 3,
@@ -91,7 +100,8 @@ export const SET2: Question[] = [
         option2: 'ข. 4 คะแนน',
         option3: 'ค. 5 คะแนน',
         option4: 'ง. 6 คะแนน',
-        answer: '1'
+        answer: '1',
+        txt:'ก. 3 คะแนน'
     },
     {
         id: 4,
@@ -100,7 +110,8 @@ export const SET2: Question[] = [
         option2: 'ข. ดูแลให้ความอบอุ่น และดูดมูกจากปากและจมูก ',
         option3: 'ค. กระตุ้นการหายใจ และให้ออกซิเจนทางหน้ากาก ',
         option4: 'ง. ดูแลทำทางเดินหายใจให้โล่ง และให้ออกซิเจนทางจมูก',
-        answer: '2'
+        answer: '2',
+        txt:'ข. ดูแลให้ความอบอุ่น และดูดมูกจากปากและจมูก'
     },
     {
         id: 5,
@@ -108,8 +119,9 @@ export const SET2: Question[] = [
         option1: 'ก. ให้ Oxygen tubing ',
         option2: 'ข. ช่วยนวดหัวใจและ PPV',
         option3: 'ค. ใส่ Endotracheal tube',
-        option4: 'ง. ให้ Bag and mask ventilation  ',
-        answer: '4'
+        option4: 'ง. ให้ Bag and mask ventilation',
+        answer: '4',
+        txt:'ง. ให้ Bag and mask ventilation'
     },
     {
         id: 6,
@@ -118,7 +130,8 @@ export const SET2: Question[] = [
         option2: 'ข. ดูดสารคัดหลั่งในปาก จมูก และกระตุ้นให้ร้องด้วยการลูบหลัง',
         option3: 'ค. ดูดสารคัดหลั่งในปาก จมูก เช็ดตัวกระตุ้น และให้ Oxygen แรงดันบวก',
         option4: 'ง. ดูดสารคัดหลั่งในปาก จมูก ให้ Oxygen แรงดันบวกร่วมกับช่วยนวดหัวใจ',
-        answer: '3'
+        answer: '3',
+        txt:'ค. ดูดสารคัดหลั่งในปาก จมูก เช็ดตัวกระตุ้น และให้ Oxygen แรงดันบวก'
     },
     {
         id: 7,
@@ -127,6 +140,7 @@ export const SET2: Question[] = [
         option2: 'ข. เช็ดตัวให้แห้ง ห่อตัวให้ความอบอุ่น',
         option3: 'ค. ดูดมูกในปาก จมูกด้วยลูกสูบยางแดง',
         option4: 'ง. ดูดน้ำคร่ำด้วย meconium aspirator',
-        answer: '4'
+        answer: '4',
+        txt:'ง. ดูดน้ำคร่ำด้วย meconium aspirator'
     },
 ];
