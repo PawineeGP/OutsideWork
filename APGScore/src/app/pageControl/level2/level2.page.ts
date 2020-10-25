@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Question } from 'src/app/model/question';
 import { ServiceApiService } from 'src/app/service/service-api.service';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-level2',
@@ -31,7 +32,7 @@ export class Level2Page implements OnInit {
   total_: any;
   total_ori: any;
 
-  constructor(private route: Router, private myapi: ServiceApiService) {
+  constructor(private route: Router, private myapi: ServiceApiService, private alertCtrl:AlertController) {
     this.uid = localStorage.getItem('uid');
     console.log('uid = ' + this.uid);
 
@@ -147,6 +148,51 @@ export class Level2Page implements OnInit {
       console.log('quiz =', this.quiz);
       this.route.navigate([`${url}`]);
     }
+  }
+
+  async correct() {
+    let alert = await this.alertCtrl.create({
+      header: 'ยินดีด้วย',
+      subHeader: 'คุณตอบถูก',
+      message: 'This is an alert message.',
+      buttons: [
+        {
+          text:'OK',
+          role:'ok',
+          handler: () => {
+            this.quiz.splice(0, 1);
+            console.log('count =', this.quiz.length);
+            console.log('catd =', this.quiz);
+            this.status = '';
+            // console.log('Cancel clicked');
+          }
+        }
+      ],
+    });
+    await alert.present();
+  }
+
+  async result_was_wrong(txt) {
+    let alert = await this.alertCtrl.create({
+      header: 'คุณตอบผิด',
+      subHeader: 'เฉลย',
+      message: txt,
+      buttons: [
+        {
+          text:'OK',
+          role:'ok',
+          handler: () => {
+            this.quiz.splice(0, 1);
+            console.log('count =', this.quiz.length);
+            console.log('catd =', this.quiz);
+            this.status = '';
+            // console.log('Cancel clicked');
+          }
+        }
+      ],
+     
+    });
+    await alert.present();
   }
 
 }

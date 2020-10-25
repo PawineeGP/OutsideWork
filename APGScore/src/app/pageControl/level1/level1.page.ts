@@ -31,12 +31,7 @@ export class Level1Page implements OnInit {
   };
   total_: any;
   total_ori: any;
-<<<<<<< HEAD
-  
-  constructor(private route: Router, private myapi: ServiceApiService) {
-=======
   constructor(private route: Router, private myapi: ServiceApiService, private alertCtrl: AlertController) {
->>>>>>> 7a884d3f38223f7cf2f0e9547d03b713af4bc1d6
     this.uid = localStorage.getItem('uid');
     console.log('uid = ' + this.uid);
 
