@@ -83,23 +83,43 @@ export class ChooesLevelPage implements OnInit {
       let u = this.userlist[index].mytotal;
 
       console.log(u);
-      if (u == 30) {
-        this.total_ = u + 70;
-      } else if (u == 15) {
-        this.total_ = u + 35;
+
+      if (u == 23) {
+        this.total_ = u + 77;
+      } else if (u == 8) {
+        this.total_ = u + 42;
         console.log('15' + this.total_);
 
-      } else if (u == 10) {
-        this.total_ = 10 + 15;
-      } else if (u <= 15 && u > 10) {
-        this.total_ = u + 30;
-      } else if (u <= 30 && u > 15) {
-        this.total_ = u + 60;
-      } else if (u < 10 && u > 0) {
-        this.total_ = u + 12;
+      } else if (u == 8) {
+        this.total_ = u + 22;
+      } else if (u <= 12 && u > 8) {
+        this.total_ = u + 37;
+      } else if (u <= 21 && u > 12) {
+        this.total_ = u + 45;
+      } else if (u < 8 && u > 0) {
+        this.total_ = u + 19;
       } else if (u == 0) {
         this.total_ = u;
+      }else if(u == 22){
+        this.total_ = u+65;
       }
+      // if (u == 30) {
+      //   this.total_ = u + 70;
+      // } else if (u == 15) {
+      //   this.total_ = u + 35;
+      //   console.log('15' + this.total_);
+
+      // } else if (u == 10) {
+      //   this.total_ = 10 + 15;
+      // } else if (u <= 15 && u > 10) {
+      //   this.total_ = u + 30;
+      // } else if (u <= 30 && u > 15) {
+      //   this.total_ = u + 60;
+      // } else if (u < 10 && u > 0) {
+      //   this.total_ = u + 12;
+      // } else if (u == 0) {
+      //   this.total_ = u;
+      // }
 
       this.total_ori = u;
       console.log(this.total_);
