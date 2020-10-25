@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Question } from 'src/app/model/question';
 import { QUESTION1, QUESTION2 } from './../../mock/mock-question';
 import { Router } from '@angular/router';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-level1',
@@ -30,8 +31,12 @@ export class Level1Page implements OnInit {
   };
   total_: any;
   total_ori: any;
+<<<<<<< HEAD
   
   constructor(private route: Router, private myapi: ServiceApiService) {
+=======
+  constructor(private route: Router, private myapi: ServiceApiService, private alertCtrl: AlertController) {
+>>>>>>> 7a884d3f38223f7cf2f0e9547d03b713af4bc1d6
     this.uid = localStorage.getItem('uid');
     console.log('uid = ' + this.uid);
 
@@ -63,19 +68,6 @@ export class Level1Page implements OnInit {
     });
   }
 
-  // lodeData() {
-  //   this.random = Math.floor(Math.random() * 2) + 1;
-  //   console.log('rd =', this.random);
-  //   if (this.random === 1) {
-  //     this.quiz = QUESTION1;
-  //     localStorage.setItem('quiz', QUESTION1 + '');
-  //   } else if (this.random === 2) {
-  //     this.quiz = QUESTION2;
-  //     localStorage.setItem('quiz', QUESTION2 + '');
-  //   }
-  //   console.log('quiz =', this.quiz);
-  // }
-
   onCheck(str: string) {
     console.log('*****************');
     this.status = str;
@@ -85,16 +77,22 @@ export class Level1Page implements OnInit {
   next(i) {
     console.log('OK status:', this.status);
     if (this.quiz[i].answer === this.status) {
+      this.correct();
       this.std.state1 += 1;
       console.log('score =', this.std.state1);
+     
     } else {
+      this.result_was_wrong(this.quiz[i].txt);
       this.std.state1 += 0;
       console.log('score =', this.std.state1);
+      console.log(this.quiz[i].txt);
+      
+     
     }
-    this.quiz.splice(0, 1);
-    console.log('count =', this.quiz.length);
-    console.log('catd =', this.quiz);
-    this.status = '';
+    // this.quiz.splice(0, 1);
+    // console.log('count =', this.quiz.length);
+    // console.log('catd =', this.quiz);
+    // this.status = '';
 
 
     let u = this.std.state1;
@@ -165,4 +163,50 @@ export class Level1Page implements OnInit {
       this.route.navigate([`${url}`]);
     }
   }
+
+  async correct() {
+    let alert = await this.alertCtrl.create({
+      header: 'ยินดีด้วย',
+      subHeader: 'คุณตอบถูก',
+      message: 'This is an alert message.',
+      buttons: [
+        {
+          text:'OK',
+          role:'ok',
+          handler: () => {
+            this.quiz.splice(0, 1);
+            console.log('count =', this.quiz.length);
+            console.log('catd =', this.quiz);
+            this.status = '';
+            // console.log('Cancel clicked');
+          }
+        }
+      ],
+    });
+    await alert.present();
+  }
+
+  async result_was_wrong(txt) {
+    let alert = await this.alertCtrl.create({
+      header: 'คุณตอบผิด',
+      subHeader: 'เฉลย',
+      message: txt,
+      buttons: [
+        {
+          text:'OK',
+          role:'ok',
+          handler: () => {
+            this.quiz.splice(0, 1);
+            console.log('count =', this.quiz.length);
+            console.log('catd =', this.quiz);
+            this.status = '';
+            // console.log('Cancel clicked');
+          }
+        }
+      ],
+     
+    });
+    await alert.present();
+  }
+
 }

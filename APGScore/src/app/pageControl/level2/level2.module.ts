@@ -1,3 +1,4 @@
+import { NgCircleProgressModule } from 'ng-circle-progress';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -13,7 +14,8 @@ import { Level2Page } from './level2.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    Level2PageRoutingModule
+    Level2PageRoutingModule,
+    NgCircleProgressModule
   ],
   declarations: [Level2Page]
 })
