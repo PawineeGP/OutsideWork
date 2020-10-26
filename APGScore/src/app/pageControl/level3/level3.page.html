@@ -11,211 +11,188 @@
                   <div class="fullscreen-bg">
                     <video class="video-tutorial" [autoplay]="true" muted controls>
                       <source
-                        src="{{ quiz[0].video }}"
+                        src="{{ quiz[i].video }}"
+
                         type="video/mp4">
                     </video>
                     <h4>สถานการณ์: {{ quiz[i].situation }}</h4>
                   </div>
-                  <!-- <div>
-                    <h2>{{ quiz[i].quiz[i].problem }}</h2>
-                    <ion-button color="success" (click)="next(i)">
-                      ยืนยันคำตอบ
-                    </ion-button>
-                  </div> -->
                 </ion-label>
               </ion-list-header>
 
               <div class="spacer" style="width: 300px; height: 30px;"></div>
-              <!-- <div *ngIf="problem.length > 0">
-                <div *ngFor="let p of problem, let j = index;">
-                  <div *ngIf="problem.length === (problem.length - i)">
-                    <!-- <h2>{{ problem[j].problem }}</h2> -->
-
-                    <!-- <section>
-                      <ion-radio-group [(ngModel)]="status">
-                        <ion-list-header>
-                          <ion-label>
-                            <h2>{{ problem[j].problem }}</h2>
-                          </ion-label>
-                        </ion-list-header>
-                        <div class="spacer" style="width: 300px; height: 30px;"></div>
-                        <div class="cards">
-                          <div class="grid-full">
-                            <ion-row>
-          
-                              <ion-col>
-                                <div>
-                                  <input type="radio" id="control_01" name="select" (click)="onCheck('1')" slot="start" value="1">
-                                  <label for="control_01">
-                                    <p>{{ problem[j].option1 }}</p>
-                                  </label>
-                                </div>
-                              </ion-col>
-          
-                              <ion-col>
-                                <div>
-                                  <input type="radio" id="control_02" name="select" (click)="onCheck('2')" slot="start" value="2">
-                                  <label for="control_02">
-          
-                                    <p>{{ problem[j].option2 }}</p>
-                                  </label>
-                                </div>
-                              </ion-col>
-          
-                              <ion-col>
-                                <div>
-                                  <input type="radio" id="control_03" name="select" (click)="onCheck('3')" slot="start" value="3">
-                                  <label for="control_03">
-          
-                                    <p>{{ problem[j].option3 }}</p>
-                                  </label>
-                                </div>
-                              </ion-col>
-          
-                              <ion-col>
-                                <div>
-                                  <input type="radio" id="control_04" name="select" (click)="onCheck('4')" slot="start" value="4">
-                                  <label for="control_04">
-          
-                                    <p>{{ problem[j].option4 }}</p>
-                                  </label>
-                                </div>
-                              </ion-col>
-                            </ion-row>
-                          </div>
-                        </div>
-                        <div>
-                          <ion-row>
-                            <ion-col>
-                              <ion-button color="success" [disabled]="status === ''" (click)="next(i)">
-                                ยืนยันคำตอบ
-                              </ion-button>
-                            </ion-col>
-                          </ion-row>
-                        </div>
-                      </ion-radio-group>
-                    </section>
-                  </div>
-                </div>
-              </div> -->
-              <!-- <div class="cards" *ngFor="let p of problem; let j = index" >
+            </div>
+          </section>
+          <section>
+            <ion-radio-group [(ngModel)]="status">
+              <ion-list-header>
+                <ion-label>
+                  <h2>{{ problem[0].problem }}</h2>
+                </ion-label>
+              </ion-list-header>
+              <div class="spacer" style="width: 300px; height: 30px;"></div>
+              <div class="cards">
                 <div class="grid-full">
                   <ion-row>
 
-                    <ion-col size="12">
+                    <ion-col>
                       <div>
-                        <input type="radio" id="control_01" name="select" slot="start" value="1">
+                        <input type="radio" id="control_01" name="select" (click)="onCheck('1')" slot="start" value="1">
                         <label for="control_01">
-                          <p>{{ problem[j].problem }}</p>
+                          <div *ngIf="this.problem[0].option1[0] !== 'h' else Img" >
+                            <p style="color: black;">{{ problem[0].option1 }}</p>
+                          </div>
+                          <ng-template #Img>
+                              <img src="{{ problem[0].option1 }}" alt="" style="width: 200px; text-align: start;">
+                          </ng-template>
                         </label>
                       </div>
                     </ion-col>
-                    <ion-col size="12">
+
+                    <ion-col>
                       <div>
-                        <input type="radio" id="control_02" name="select" slot="start" value="2">
+                        <input type="radio" id="control_02" name="select" (click)="onCheck('2')" slot="start" value="2">
                         <label for="control_02">
-                          <p> 2. ใช้ลูกสูบยางแดงดูดสารคัดหลั่งในปากและจมูก เพื่อให้ทารกหายใจได้สะดวก (Suction Clear
-                            Airway) </p>
+                          <div *ngIf="this.problem[0].option2[0] !== 'h' else Img" >
+                            <p style="color: black;">{{ problem[0].option2 }}</p>
+                          </div>
+                          <ng-template #Img>
+                              <img src="{{ problem[0].option2 }}" alt="" style="width: 200px; text-align: start;">
+                          </ng-template>
                         </label>
                       </div>
                     </ion-col>
+
+                    <ion-col>
+                      <div>
+                        <input type="radio" id="control_03" name="select" (click)="onCheck('3')" slot="start" value="3">
+                        <label for="control_03">
+                          <div *ngIf="this.problem[0].option3[0] !== 'h' else Img" >
+                            <p style="color: black;">{{ problem[0].option3 }}</p>
+                          </div>
+                          <ng-template #Img>
+                              <img src="{{ problem[0].option3 }}" alt="" style="width: 200px; text-align: start;">
+                          </ng-template>
+                        </label>
+                      </div>
+                    </ion-col>
+
+                    <ion-col>
+                      <div>
+                        <input type="radio" id="control_04" name="select" (click)="onCheck('4')" slot="start" value="4">
+                        <label for="control_04">
+                          <div *ngIf="this.problem[0].option4[0] !== 'h' else Img" >
+                            <p style="color: black;">{{ problem[0].option4 }}</p>
+                          </div>
+                          <ng-template #Img>
+                              <img src="{{ problem[0].option4 }}" alt="" style="width: 200px; text-align: start;">
+                          </ng-template>
+                        </label>
+                      </div>
+                    </ion-col>
+
+                    <ion-col>
+                      <div>
+                        <input type="radio" id="control_05" name="select" (click)="onCheck('5')" slot="start" value="5">
+                          <label for="control_05">
+                            <p style="color: black;">{{ problem[0].option5 }}</p>
+                          </label>
+                      </div>
+                    </ion-col>
+
+                    <ion-col>
+                      <div>
+                        <input type="radio" id="control_06" name="select" (click)="onCheck('6')" slot="start" value="6">
+                        <label  for="control_06">
+                          <p style="color: black;">{{ problem[0].option6 }}</p>
+                        </label>
+                      </div>
+                    </ion-col>
+
+                    <ion-col>
+                      <div>
+                        <input type="radio" id="control_07" name="select" (click)="onCheck('7')" slot="start" value="7">
+                        <label  for="control_07">
+                          <p style="color: black;">{{ problem[0].option7 }}</p>
+                        </label>
+                      </div>
+                    </ion-col>
+
+                    <ion-col>
+                      <div>
+                        <input type="radio" id="control_08" name="select" (click)="onCheck('7')" slot="start" value="8">
+                        <label  for="control_08">
+                          <p style="color: black;">{{ problem[0].option8 }}</p>
+                        </label>
+                      </div>
+                    </ion-col>
+
+                    <ion-col>
+                      <div>
+                        <input type="radio" id="control_09" name="select" (click)="onCheck('9')" slot="start" value="9">
+                        <label  for="control_09">
+                          <p style="color: black;">{{ problem[0].option9 }}</p>
+                        </label>
+                      </div>
+                    </ion-col>
+
+                    <ion-col>
+                      <div>
+                        <input type="radio" id="control_10" name="select" (click)="onCheck('10')" slot="start" value="10">
+                        <label  for="control_10">
+                          <p style="color: black;">{{ problem[0].option10 }}</p>
+                        </label>
+                      </div>
+                    </ion-col>
+
                   </ion-row>
                 </div>
-              </div> -->
-
-
-              <!-- <div>
+              </div>
+              <div>
                 <ion-row>
                   <ion-col>
-                    <ion-button color="success">
+                    <ion-button color="success" [disabled]="status === ''" (click)="next(i)">
                       ยืนยันคำตอบ
                     </ion-button>
                   </ion-col>
                 </ion-row>
-              </div> -->
-            </div>
-          </section>
-          <section>
-            <h2>{{ problem[0].problem }}</h2>
-            <ion-button color="success" (click)="next(0)">
-              ยืนยันคำตอบ
-            </ion-button>
-          </section>
-          <!-- <section>
-            <div *ngIf="problem.length > 0">
-              <div *ngFor="let j = index;">
-                <div *ngIf="problem.length === (problem.length - i)">
-
-                  <section>
-                    <ion-radio-group [(ngModel)]="status">
-                      <ion-list-header>
-                        <ion-label>
-                          <h2>{{ problem[j].problem }}</h2>
-                        </ion-label>
-                      </ion-list-header>
-                      <div class="spacer" style="width: 300px; height: 30px;"></div>
-                      <div class="cards">
-                        <div class="grid-full">
-                          <ion-row>
-        
-                            <ion-col>
-                              <div>
-                                <input type="radio" id="control_01" name="select" (click)="onCheck('1')" slot="start" value="1">
-                                <label for="control_01">
-                                  <p>{{ problem[j].option1 }}</p>
-                                </label>
-                              </div>
-                            </ion-col>
-        
-                            <ion-col>
-                              <div>
-                                <input type="radio" id="control_02" name="select" (click)="onCheck('2')" slot="start" value="2">
-                                <label for="control_02">
-        
-                                  <p>{{ problem[j].option2 }}</p>
-                                </label>
-                              </div>
-                            </ion-col>
-        
-                            <ion-col>
-                              <div>
-                                <input type="radio" id="control_03" name="select" (click)="onCheck('3')" slot="start" value="3">
-                                <label for="control_03">
-        
-                                  <p>{{ problem[j].option3 }}</p>
-                                </label>
-                              </div>
-                            </ion-col>
-        
-                            <ion-col>
-                              <div>
-                                <input type="radio" id="control_04" name="select" (click)="onCheck('4')" slot="start" value="4">
-                                <label for="control_04">
-        
-                                  <p>{{ problem[j].option4 }}</p>
-                                </label>
-                              </div>
-                            </ion-col>
-                          </ion-row>
-                        </div>
-                      </div>
-                      <div>
-                        <ion-row>
-                          <ion-col>
-                            <ion-button color="success" [disabled]="status === ''" (click)="next(i)">
-                              ยืนยันคำตอบ
-                            </ion-button>
-                          </ion-col>
-                        </ion-row>
-                      </div>
-                    </ion-radio-group>
-                  </section>
-                </div>
               </div>
-            </div>
-          </section> -->
+            </ion-radio-group>
+          </section>
         </div>
       </div>
     </div>
   </div>
+
+  <div id="scoreV1">
+    <div style="text-align: center;" *ngIf="quiz.length === 0">
+      <h2>คะแนนที่ได้</h2>
+      <div class="spacer" style="width: 300px; height: 40px;"></div>
+      <!-- <circle-progress [unitsFontWeight]="800" [percent]="(total_)" [radius]="60" [maxPercent]="200" [units]="'/7'"
+        [unitsColor]="'rgb(121, 38, 5)'" [title]="(total_ori)" [subtitle]="20" [titleFontSize]="30"
+        [titleFontWeight]="1000" [subtitleFontSize]="28" [subtitleFontWeight]="900" [space]="-5" [outerStrokeWidth]="5"
+        [outerStrokeColor]="'#24a368'" [innerStrokeColor]="'#FFF'" [showBackground]="true" [animation]="true"
+        [innerStrokeWidth]="5" [titleColor]="'#483500'" [subtitleColor]="'#90240e'" [showTitle]="true"
+        [showSubtitle]="false" [showInnerStroke]="true" [startFromZero]="false" [animationDuration]="2000"
+        [showUnits]="true" [unitsFontSize]="12" [unitsFontWeight]="800">
+
+      </circle-progress> -->
+      <div class="spacer" style="width: 300px; height: 40px;"></div>
+        <ion-row>
+          <ion-col>
+            <ion-button color="primary" (click)="setScore('chooes-level')">
+              <ion-icon slot="end" name="home-outline"></ion-icon>
+              กลับหน้าหลัก
+            </ion-button>
+          </ion-col>
+
+          <ion-col>
+            <ion-button color="primary" (click)="setScore('level3')">
+              <ion-icon slot="end" name="chevron-forward-outline"></ion-icon>
+              เล่นอีกครั้ง
+            </ion-button>
+          </ion-col>
+        </ion-row>
+      </div>
+    </div>
 </ion-content>

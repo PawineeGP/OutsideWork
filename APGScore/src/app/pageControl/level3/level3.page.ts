@@ -1,3 +1,4 @@
+import { Q3SET1, Q3SET2 } from './../../mock/mock-question3';
 import { ServiceApiService } from './../../service/service-api.service';
 import { Question3 } from './../../model/question3';
 import { Component, OnInit } from '@angular/core';
@@ -33,19 +34,59 @@ export class Level3Page implements OnInit {
 
   constructor(private route: Router, private myapi: ServiceApiService) {
     this.uid = localStorage.getItem('uid');
-    console.log('uid = ' + this.uid);
+    // console.log('uid = ' + this.uid);
 
     // this.lodeData();
     // console.log('data:', this.lodeData());
 
     let q = localStorage.getItem('quiz3');
     this.quiz = JSON.parse(q);
-    this.problem = this.quiz[0].quiz;
-    console.log('quiz =', this.quiz[0].quiz);
-    console.log(JSON.parse(q));
+    console.log(this.quiz);
+    // let a;
+    // let b;
+    // for (let index = 0; index < this.quiz.length; index++) {
+    //       // console.log(this.quiz[index]);
+    //       a = this.quiz[index].quiz;
+    //       // console.log(a);
+    // }
+
+    // for (let i = 0; i < a.length; i++) {
+    //   if(i == 0){
+    //     b = a[0];
+    //   }
+    //   // console.log(a[i]);
+      
+      
+    // }
+
+  
+
+      this.problem = this.quiz[0].quiz;
+      console.log('problem =', this.problem);
+    
+    
+    // console.log(this.problem[1].option1[0]);
+    
+  //   console.log('quiz =', this.quiz);
+  //   console.log('problem =', this.problem);
+  //   console.log(JSON.parse(q));
   }
 
   ngOnInit() {
+    this.myapi.Readdata().subscribe(data => {
+      this.userlist = data.map(e => {
+        return {
+          id: e.payload.doc.id,
+          isEdit: false,
+          myuid: e.payload.doc.data()['UID'.toString()],
+          mystate1: e.payload.doc.data()['state1'.toString()],
+          mystate2: e.payload.doc.data()['state2'.toString()],
+          mystate3: e.payload.doc.data()['state3'.toString()],
+          mytotal: e.payload.doc.data()['total'.toString()]
+        };
+      });
+      console.log('userlist =', this.userlist);
+    });
   }
 
   onCheck(str: string) {
@@ -66,11 +107,19 @@ export class Level3Page implements OnInit {
     // this.problem.splice(0, 1);
     if (this.problem.length > 1) {
       this.problem.splice(0, 1);
+      console.log('เข้า if');
+      console.log('count =', this.problem.length);
+      console.log('catd =', this.problem);
+      this.status = '';
     } else {
       this.quiz.splice(0, 1);
+      if (this.quiz.length > 0) {
+        this.problem = this.quiz[0].quiz;
+      }
+      console.log('เข้า else');
+      console.log('quiz =', this.quiz);
+      this.status = '';
     }
-    console.log('count =', this.problem.length);
-    console.log('catd =', this.problem);
     this.status = '';
 
 
@@ -97,6 +146,58 @@ export class Level3Page implements OnInit {
       this.total_ = u;
     }
 
+  }
+
+  setScore(url: string) {
+    console.log(url);
+    let index = this.userlist.findIndex(std => std.myuid === this.uid);
+    console.log('index:', index);
+
+    if (this.std.state3 > this.userlist[index].mystate3) {
+      let newrecord = {};
+      newrecord['state3'] = this.std.state3;
+      newrecord['total'] = this.userlist[index].mystate1 + this.userlist[index].mystate2 + this.std.state3;
+      this.myapi.updateData(this.userlist[index].id, newrecord); // update
+      console.log(newrecord);
+    }
+
+    if (url === 'chooes-level'){
+      this.random = Math.floor(Math.random() * 2) + 1;
+      console.log('rd =', this.random);
+      if (this.random === 1) {
+        // this.quiz = QUESTION1;
+        localStorage.setItem('quiz', Q3SET1 + '');
+      } else if (this.random === 2) {
+        // this.quiz = QUESTION2;
+        localStorage.setItem('quiz', Q3SET2 + '');
+      }
+      console.log('quiz =', this.quiz);
+      this.route.navigate([`${url}`]);
+    }else if (url ===  'level3'){
+      this.random = Math.floor(Math.random() * 2) + 1;
+      console.log('rd =', this.random);
+      if (this.random === 1) {
+        // this.quiz = QUESTION1;
+        localStorage.setItem('quiz', Q3SET1 + '');
+      } else if (this.random === 2) {
+        // this.quiz = QUESTION2;
+        localStorage.setItem('quiz', Q3SET2 + '');
+      }
+      console.log('quiz =', this.quiz);
+      this.route.navigate([`${url}`]);
+    }else if (url ===  'level2') {
+      // this.random = Math.floor(Math.random() * 2) + 1;
+      // console.log('rd =', this.random);
+      // if (this.random === 1) {
+      //   this.quiz = SET1;
+      //   localStorage.setItem('quiz', SET1 + '');
+      // } else if (this.random === 2) {
+      //   this.quiz = SET2;
+      //   localStorage.setItem('quiz', SET2 + '');
+      // }
+      // console.log('quiz =', this.quiz);
+      this.route.navigate([`${url}`]);
+    }
   }
 
 }
