@@ -38,7 +38,6 @@ export class ViewScorePage implements OnInit {
         return {
           id: e.payload.doc.data()['id'.toString()],
           name: e.payload.doc.data()['name'.toString()] + ' ' + e.payload.doc.data()['surname'.toString()],
-
           state1: e.payload.doc.data()['state1'.toString()],
           state2: e.payload.doc.data()['state2'.toString()],
           state3: e.payload.doc.data()['state3'.toString()],

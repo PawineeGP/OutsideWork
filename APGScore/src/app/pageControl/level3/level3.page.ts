@@ -31,6 +31,7 @@ export class Level3Page implements OnInit {
   };
   total_: any;
   total_ori: any;
+  chk_img_q:boolean = true;
 
   constructor(private route: Router, private myapi: ServiceApiService) {
     this.uid = localStorage.getItem('uid');
@@ -63,7 +64,16 @@ export class Level3Page implements OnInit {
 
       this.problem = this.quiz[0].quiz;
       console.log('problem =', this.problem);
-    
+      // *ngIf="problem[0].option1[0] !== 'h' else Img" 
+
+      if(this.problem[0].option1[0] != 'h'){
+        this.chk_img_q = false;
+        console.log('h = false');
+        
+    }else{
+      this.chk_img_q =true;
+      console.log('h = true');
+    }
     
     // console.log(this.problem[1].option1[0]);
     
@@ -87,6 +97,8 @@ export class Level3Page implements OnInit {
       });
       console.log('userlist =', this.userlist);
     });
+
+  
   }
 
   onCheck(str: string) {
@@ -111,14 +123,31 @@ export class Level3Page implements OnInit {
       console.log('count =', this.problem.length);
       console.log('catd =', this.problem);
       this.status = '';
+      if(this.problem[0].option1[0] != 'h'){
+        this.chk_img_q = false;
+        console.log('h = false');
+        
+    }else{
+      this.chk_img_q = true;
+      console.log('h = true');
+    }
     } else {
       this.quiz.splice(0, 1);
       if (this.quiz.length > 0) {
         this.problem = this.quiz[0].quiz;
+
       }
       console.log('เข้า else');
       console.log('quiz =', this.quiz);
       this.status = '';
+      if(this.problem[0].option1[0] != 'h'){
+        this.chk_img_q = false;
+        console.log('h = false');
+        
+    }else{
+      this.chk_img_q =true;
+      console.log('h = true');
+    }
     }
     this.status = '';
 

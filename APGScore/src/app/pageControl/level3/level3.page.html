@@ -31,66 +31,112 @@
                 </ion-label>
               </ion-list-header>
               <div class="spacer" style="width: 300px; height: 30px;"></div>
-              <div class="cards">
+  <!-- *************************************************** img **************************** -->                
+              <div class="cards" *ngIf="chk_img_q">
+                  <div class="grid-full">
+                      <ion-row>
+                        <ion-col>
+                          <div>
+                            <input type="radio" id="control_01" name="select" (click)="onCheck('1')" slot="start" value="1">
+                            <label for="control_01">  
+                             
+                              <img src="{{ problem[0].option1 }}" alt="">                      
+                              <!-- <ng-template >
+                                  <img src={{problem[0].option1}} alt="" style="width: 200px; text-align: start;">
+                              </ng-template> -->
+                            </label>
+                          </div>
+                        </ion-col>
+    
+                        <ion-col>
+                          <div>
+                            <input type="radio" id="control_02" name="select" (click)="onCheck('2')" slot="start" value="2">
+                            <label for="control_02">
+                              <img src="{{ problem[0].option2 }}" alt="">  
+                              <!-- <ng-template >
+                               
+                                  <img src="{{ problem[0].option2 }}" alt="" style="width: 200px; text-align: start;">
+                              </ng-template> -->
+                            </label>
+                          </div>
+                        </ion-col>
+    
+                        <ion-col>
+                          <div>
+                            <input type="radio" id="control_03" name="select" (click)="onCheck('3')" slot="start" value="3">
+                            <label for="control_03">
+                              <img src="{{ problem[0].option3 }}" alt="">  
+                              <!-- <ng-template >
+                                  <img src="{{ problem[0].option3 }}" alt="" style="width: 200px; text-align: start;">
+                              </ng-template> -->
+                            </label>
+                          </div>
+                        </ion-col>
+    
+                        <ion-col>
+                          <div>
+                            <input type="radio" id="control_04" name="select" (click)="onCheck('4')" slot="start" value="4">
+                            <label for="control_04">
+                              <img src="{{ problem[0].option4 }}" alt="">  
+                              <!-- <ng-template >
+                                  <img src="{{ problem[0].option4 }}" alt="" style="width: 200px; text-align: start;">
+                              </ng-template> -->
+                            </label>
+                          </div>
+                        </ion-col>
+                      </ion-row>
+                  </div>
+              </div>
+            <!-- *************************************************************************************** -->
+  <!-- ##################################################### txt ########################################### -->
+              <div class="cards" *ngIf="!chk_img_q">
                 <div class="grid-full">
-                  <ion-row>
+                  <ion-row >                
+                  <ion-col>
+                    <div>
+                      <input type="radio" id="control_01" name="select" (click)="onCheck('1')" slot="start" value="1">
+                      <label for="control_01">
+                        <div>
+                          <p style="color: black;">{{ problem[0].option1 }}</p>
+                        
+                        </div>                     
+                      </label>
+                    </div>
+                  </ion-col>
 
-                    <ion-col>
-                      <div>
-                        <input type="radio" id="control_01" name="select" (click)="onCheck('1')" slot="start" value="1">
-                        <label for="control_01">
-                          <div *ngIf="this.problem[0].option1[0] !== 'h' else Img" >
-                            <p style="color: black;">{{ problem[0].option1 }}</p>
-                          </div>
-                          <ng-template #Img>
-                              <img src="{{ problem[0].option1 }}" alt="" style="width: 200px; text-align: start;">
-                          </ng-template>
-                        </label>
-                      </div>
-                    </ion-col>
+                  <ion-col>
+                    <div>
+                      <input type="radio" id="control_02" name="select" (click)="onCheck('2')" slot="start" value="2">
+                      <label for="control_02">
+                        <div>
+                          <p style="color: black;">{{ problem[0].option2 }}</p>
+                        </div>                     
+                      </label>
+                    </div>
+                  </ion-col>
 
-                    <ion-col>
-                      <div>
-                        <input type="radio" id="control_02" name="select" (click)="onCheck('2')" slot="start" value="2">
-                        <label for="control_02">
-                          <div *ngIf="this.problem[0].option2[0] !== 'h' else Img" >
-                            <p style="color: black;">{{ problem[0].option2 }}</p>
-                          </div>
-                          <ng-template #Img>
-                              <img src="{{ problem[0].option2 }}" alt="" style="width: 200px; text-align: start;">
-                          </ng-template>
-                        </label>
-                      </div>
-                    </ion-col>
+                  <ion-col>
+                    <div>
+                      <input type="radio" id="control_03" name="select" (click)="onCheck('3')" slot="start" value="3">
+                      <label for="control_03">
+                        <div>
+                          <p style="color: black;">{{ problem[0].option3 }}</p>
+                        </div>
+                       
+                      </label>
+                    </div>
+                  </ion-col>
 
-                    <ion-col>
-                      <div>
-                        <input type="radio" id="control_03" name="select" (click)="onCheck('3')" slot="start" value="3">
-                        <label for="control_03">
-                          <div *ngIf="this.problem[0].option3[0] !== 'h' else Img" >
-                            <p style="color: black;">{{ problem[0].option3 }}</p>
-                          </div>
-                          <ng-template #Img>
-                              <img src="{{ problem[0].option3 }}" alt="" style="width: 200px; text-align: start;">
-                          </ng-template>
-                        </label>
-                      </div>
-                    </ion-col>
-
-                    <ion-col>
-                      <div>
-                        <input type="radio" id="control_04" name="select" (click)="onCheck('4')" slot="start" value="4">
-                        <label for="control_04">
-                          <div *ngIf="this.problem[0].option4[0] !== 'h' else Img" >
-                            <p style="color: black;">{{ problem[0].option4 }}</p>
-                          </div>
-                          <ng-template #Img>
-                              <img src="{{ problem[0].option4 }}" alt="" style="width: 200px; text-align: start;">
-                          </ng-template>
-                        </label>
-                      </div>
-                    </ion-col>
-
+                  <ion-col>
+                    <div>
+                      <input type="radio" id="control_04" name="select" (click)="onCheck('4')" slot="start" value="4">
+                      <label for="control_04">
+                        <div>
+                          <p style="color: black;">{{ problem[0].option4 }}</p>
+                        </div>                      
+                      </label>
+                    </div>
+                  </ion-col>
                     <ion-col>
                       <div>
                         <input type="radio" id="control_05" name="select" (click)="onCheck('5')" slot="start" value="5">
