@@ -60,8 +60,6 @@ export class Level3Page implements OnInit {
       
     // }
 
-  
-
       this.problem = this.quiz[0].quiz;
       console.log('problem =', this.problem);
       // *ngIf="problem[0].option1[0] !== 'h' else Img" 

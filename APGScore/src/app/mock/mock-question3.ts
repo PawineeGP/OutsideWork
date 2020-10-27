@@ -174,6 +174,8 @@ export const Q3SET2: Question3[] = [
                 option6: '6 คะแนน',
                 option7: '7 คะแนน',
                 option8: '8 คะแนน',
+                option9: '9 คะแนน',
+                option10: '10 คะแนน',
                 answer: '10'
             },
             {
