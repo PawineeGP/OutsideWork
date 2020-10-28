@@ -4,16 +4,21 @@
 .bg-level3{
   --background: url(../../../assets/bg/bg-level1-1.png) 0 0/100% 100% no-repeat;
 }
-// #container {
-//   text-align: center;  
-//   position: relative;
-//   left: 5px;
-//   right: 10px;
-//   top: 50%;
-//   transform: translateY(-50%);
-// }
 
+#container {
+  text-align: center;  
+  position: relative;
+  // left: 10px;
+  // right: 10px;
+  top: 75%;
+  transform: translateY(-50%);
+}
 
+h4{
+  font-family: 'Athiti', sans-serif;
+  font-size: 15px;
+  font-weight: bold;
+}
 video{
     // border-radius:2px;
     border-color:red ;
@@ -130,8 +135,8 @@ h1 {
     }
   }
   input[type="radio"]#control_05:checked + label {
-    background: red;
-    border-color: red;
+    background: #20df80;
+    border-color: #20df80;
   }
   p {
     font-weight: 900;

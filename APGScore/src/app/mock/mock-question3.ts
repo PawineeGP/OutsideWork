@@ -18,7 +18,8 @@ export const Q3SET1: Question3[] = [
                 option8: '8 คะแนน',
                 option9: '9 คะแนน',
                 option10: '10 คะแนน',
-                answer: '1'
+                answer: '1',
+                txt:'1 คะแนน'
             },
             {
                 id: 2,
@@ -27,7 +28,9 @@ export const Q3SET1: Question3[] = [
                 option2: 'https://firebasestorage.googleapis.com/v0/b/apgscore1103.appspot.com/o/state3%2Fchoice%2Fset1%2F%E0%B8%84%E0%B8%B3%E0%B8%95%E0%B8%AD%E0%B8%9A%E0%B8%82%E0%B9%89%E0%B8%AD%20B03.png?alt=media&token=424f2f9b-28d1-4e8d-91b5-ad455f72f12b',
                 option3: 'https://firebasestorage.googleapis.com/v0/b/apgscore1103.appspot.com/o/state3%2Fchoice%2Fset1%2F%E0%B8%84%E0%B8%B3%E0%B8%95%E0%B8%AD%E0%B8%9A%E0%B8%82%E0%B9%89%E0%B8%AD%20B01.png?alt=media&token=eca4bb60-f199-4983-9d99-fe72d8059f5c',
                 option4: 'https://firebasestorage.googleapis.com/v0/b/apgscore1103.appspot.com/o/state3%2Fchoice%2Fset2%2F%E0%B8%84%E0%B8%B3%E0%B8%95%E0%B8%AD%E0%B8%9A%E0%B8%82%E0%B9%89%E0%B8%AD%20B02.png?alt=media&token=27f45144-58d0-4118-b5ab-e2c6dd57d094',
-                answer: '3'
+                answer: '3',
+                txt: 'https://firebasestorage.googleapis.com/v0/b/apgscore1103.appspot.com/o/state3%2Fchoice%2Fset1%2F%E0%B8%84%E0%B8%B3%E0%B8%95%E0%B8%AD%E0%B8%9A%E0%B8%82%E0%B9%89%E0%B8%AD%20B01.png?alt=media&token=eca4bb60-f199-4983-9d99-fe72d8059f5c',
+                
             }
         ],
     },
@@ -49,7 +52,8 @@ export const Q3SET1: Question3[] = [
                 option8: '8 คะแนน',
                 option9: '9 คะแนน',
                 option10: '10 คะแนน',
-                answer: '5'
+                answer: '5',
+                txt:'5 คะแนน'
             },
             {
                 id: 2,
@@ -58,7 +62,9 @@ export const Q3SET1: Question3[] = [
                 option2: 'https://firebasestorage.googleapis.com/v0/b/apgscore1103.appspot.com/o/state3%2Fchoice%2Fset1%2F%E0%B8%84%E0%B8%B3%E0%B8%95%E0%B8%AD%E0%B8%9A%E0%B8%82%E0%B9%89%E0%B8%AD%20B03.png?alt=media&token=424f2f9b-28d1-4e8d-91b5-ad455f72f12b',
                 option3: 'https://firebasestorage.googleapis.com/v0/b/apgscore1103.appspot.com/o/state3%2Fchoice%2Fset1%2F%E0%B8%84%E0%B8%B3%E0%B8%95%E0%B8%AD%E0%B8%9A%E0%B8%82%E0%B9%89%E0%B8%AD%20B01.png?alt=media&token=eca4bb60-f199-4983-9d99-fe72d8059f5c',
                 option4: 'https://firebasestorage.googleapis.com/v0/b/apgscore1103.appspot.com/o/state3%2Fchoice%2Fset2%2F%E0%B8%84%E0%B8%B3%E0%B8%95%E0%B8%AD%E0%B8%9A%E0%B8%82%E0%B9%89%E0%B8%AD%20B02.png?alt=media&token=27f45144-58d0-4118-b5ab-e2c6dd57d094',
-                answer: '2'
+                answer: '2',
+                txt: 'https://firebasestorage.googleapis.com/v0/b/apgscore1103.appspot.com/o/state3%2Fchoice%2Fset1%2F%E0%B8%84%E0%B8%B3%E0%B8%95%E0%B8%AD%E0%B8%9A%E0%B8%82%E0%B9%89%E0%B8%AD%20B03.png?alt=media&token=424f2f9b-28d1-4e8d-91b5-ad455f72f12b',
+
             }
         ],
     },
@@ -80,7 +86,8 @@ export const Q3SET1: Question3[] = [
                 option8: '8 คะแนน',
                 option9: '9 คะแนน',
                 option10: '10 คะแนน',
-                answer: '8'
+                answer: '8',
+                txt:'8 คะแนน'
             },
             {
                 id: 2,
@@ -89,7 +96,9 @@ export const Q3SET1: Question3[] = [
                 option2: 'https://firebasestorage.googleapis.com/v0/b/apgscore1103.appspot.com/o/state3%2Fchoice%2Fset1%2F%E0%B8%84%E0%B8%B3%E0%B8%95%E0%B8%AD%E0%B8%9A%E0%B8%82%E0%B9%89%E0%B8%AD%20B03.png?alt=media&token=424f2f9b-28d1-4e8d-91b5-ad455f72f12b',
                 option3: 'https://firebasestorage.googleapis.com/v0/b/apgscore1103.appspot.com/o/state3%2Fchoice%2Fset1%2F%E0%B8%84%E0%B8%B3%E0%B8%95%E0%B8%AD%E0%B8%9A%E0%B8%82%E0%B9%89%E0%B8%AD%20B01.png?alt=media&token=eca4bb60-f199-4983-9d99-fe72d8059f5c',
                 option4: 'https://firebasestorage.googleapis.com/v0/b/apgscore1103.appspot.com/o/state3%2Fchoice%2Fset2%2F%E0%B8%84%E0%B8%B3%E0%B8%95%E0%B8%AD%E0%B8%9A%E0%B8%82%E0%B9%89%E0%B8%AD%20B02.png?alt=media&token=27f45144-58d0-4118-b5ab-e2c6dd57d094',
-                answer: '1'
+                answer: '1',
+                txt: 'https://firebasestorage.googleapis.com/v0/b/apgscore1103.appspot.com/o/state3%2Fchoice%2Fset1%2F%E0%B8%84%E0%B8%B3%E0%B8%95%E0%B8%AD%E0%B8%9A%E0%B8%82%E0%B9%89%E0%B8%AD%20B05.png?alt=media&token=c73a7853-1e26-43ad-896a-1fa7b2db553e',
+
             }
         ],
     }
@@ -114,7 +123,8 @@ export const Q3SET2: Question3[] = [
                 option8: '8 คะแนน',
                 option9: '9 คะแนน',
                 option10: '10 คะแนน',
-                answer: '3'
+                answer: '3',
+                txt:'3 คะแนน'
             },
             {
                 id: 2,
@@ -123,7 +133,9 @@ export const Q3SET2: Question3[] = [
                 option2: 'https://firebasestorage.googleapis.com/v0/b/apgscore1103.appspot.com/o/state3%2Fchoice%2Fset2%2F%E0%B8%84%E0%B8%B3%E0%B8%95%E0%B8%AD%E0%B8%9A%E0%B8%82%E0%B9%89%E0%B8%AD%20B06.png?alt=media&token=664972b9-4d1a-4d23-9396-b3c4e9c334aa',
                 option3: 'https://firebasestorage.googleapis.com/v0/b/apgscore1103.appspot.com/o/state3%2Fchoice%2Fset2%2F%E0%B8%84%E0%B8%B3%E0%B8%95%E0%B8%AD%E0%B8%9A%E0%B8%82%E0%B9%89%E0%B8%AD%20B04.png?alt=media&token=cade59d8-078b-4f70-aba2-669e87771b04',
                 option4: 'https://firebasestorage.googleapis.com/v0/b/apgscore1103.appspot.com/o/state3%2Fchoice%2Fset2%2F%E0%B8%84%E0%B8%B3%E0%B8%95%E0%B8%AD%E0%B8%9A%E0%B8%82%E0%B9%89%E0%B8%AD%20B02.png?alt=media&token=27f45144-58d0-4118-b5ab-e2c6dd57d094',
-                answer: '4'
+                answer: '4',
+                txt: 'https://firebasestorage.googleapis.com/v0/b/apgscore1103.appspot.com/o/state3%2Fchoice%2Fset2%2F%E0%B8%84%E0%B8%B3%E0%B8%95%E0%B8%AD%E0%B8%9A%E0%B8%82%E0%B9%89%E0%B8%AD%20B02.png?alt=media&token=27f45144-58d0-4118-b5ab-e2c6dd57d094',
+                
             }
         ],
     },
@@ -145,7 +157,8 @@ export const Q3SET2: Question3[] = [
                 option8: '8 คะแนน',
                 option9: '9 คะแนน',
                 option10: '10 คะแนน',
-                answer: '6'
+                answer: '6',
+                txt:'6 คะแนน'
             },
             {
                 id: 2,
@@ -154,7 +167,9 @@ export const Q3SET2: Question3[] = [
                 option2: 'https://firebasestorage.googleapis.com/v0/b/apgscore1103.appspot.com/o/state3%2Fchoice%2Fset2%2F%E0%B8%84%E0%B8%B3%E0%B8%95%E0%B8%AD%E0%B8%9A%E0%B8%82%E0%B9%89%E0%B8%AD%20B06.png?alt=media&token=664972b9-4d1a-4d23-9396-b3c4e9c334aa',
                 option3: 'https://firebasestorage.googleapis.com/v0/b/apgscore1103.appspot.com/o/state3%2Fchoice%2Fset2%2F%E0%B8%84%E0%B8%B3%E0%B8%95%E0%B8%AD%E0%B8%9A%E0%B8%82%E0%B9%89%E0%B8%AD%20B04.png?alt=media&token=cade59d8-078b-4f70-aba2-669e87771b04',
                 option4: 'https://firebasestorage.googleapis.com/v0/b/apgscore1103.appspot.com/o/state3%2Fchoice%2Fset2%2F%E0%B8%84%E0%B8%B3%E0%B8%95%E0%B8%AD%E0%B8%9A%E0%B8%82%E0%B9%89%E0%B8%AD%20B02.png?alt=media&token=27f45144-58d0-4118-b5ab-e2c6dd57d094',
-                answer: '3'
+                answer: '3',
+                txt: 'https://firebasestorage.googleapis.com/v0/b/apgscore1103.appspot.com/o/state3%2Fchoice%2Fset2%2F%E0%B8%84%E0%B8%B3%E0%B8%95%E0%B8%AD%E0%B8%9A%E0%B8%82%E0%B9%89%E0%B8%AD%20B04.png?alt=media&token=cade59d8-078b-4f70-aba2-669e87771b04',
+
             }
         ],
     },
@@ -176,7 +191,8 @@ export const Q3SET2: Question3[] = [
                 option8: '8 คะแนน',
                 option9: '9 คะแนน',
                 option10: '10 คะแนน',
-                answer: '10'
+                answer: '10',
+                txt:'10 คะแนน'
             },
             {
                 id: 2,
@@ -185,7 +201,9 @@ export const Q3SET2: Question3[] = [
                 option2: 'https://firebasestorage.googleapis.com/v0/b/apgscore1103.appspot.com/o/state3%2Fchoice%2Fset2%2F%E0%B8%84%E0%B8%B3%E0%B8%95%E0%B8%AD%E0%B8%9A%E0%B8%82%E0%B9%89%E0%B8%AD%20B06.png?alt=media&token=664972b9-4d1a-4d23-9396-b3c4e9c334aa',
                 option3: 'https://firebasestorage.googleapis.com/v0/b/apgscore1103.appspot.com/o/state3%2Fchoice%2Fset2%2F%E0%B8%84%E0%B8%B3%E0%B8%95%E0%B8%AD%E0%B8%9A%E0%B8%82%E0%B9%89%E0%B8%AD%20B04.png?alt=media&token=cade59d8-078b-4f70-aba2-669e87771b04',
                 option4: 'https://firebasestorage.googleapis.com/v0/b/apgscore1103.appspot.com/o/state3%2Fchoice%2Fset2%2F%E0%B8%84%E0%B8%B3%E0%B8%95%E0%B8%AD%E0%B8%9A%E0%B8%82%E0%B9%89%E0%B8%AD%20B02.png?alt=media&token=27f45144-58d0-4118-b5ab-e2c6dd57d094',
-                answer: '2'
+                answer: '2',
+                txt: 'https://firebasestorage.googleapis.com/v0/b/apgscore1103.appspot.com/o/state3%2Fchoice%2Fset2%2F%E0%B8%84%E0%B8%B3%E0%B8%95%E0%B8%AD%E0%B8%9A%E0%B8%82%E0%B9%89%E0%B8%AD%20B06.png?alt=media&token=664972b9-4d1a-4d23-9396-b3c4e9c334aa',
+
             }
         ],
     }

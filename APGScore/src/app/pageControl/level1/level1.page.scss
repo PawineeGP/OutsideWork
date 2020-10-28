@@ -99,10 +99,12 @@ h1 {
       font-family: 'Athiti', sans-serif;
     }
   }
+
   input[type="radio"]#control_05:checked + label {
-    background: red;
-    border-color: red;
+    background: #20df80;
+    border-color: #20df80;
   }
+
   p {
     font-weight: 900;
     font-family: 'Athiti', sans-serif;
