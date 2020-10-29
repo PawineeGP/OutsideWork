@@ -1,5 +1,6 @@
 import { ServiceApiService } from './../../service/service-api.service';
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/auth';
 
 @Component({
   selector: 'app-view-score',
@@ -17,7 +18,7 @@ export class ViewScorePage implements OnInit {
   userlist = [];
   table: any = [];
 
-  constructor(private myapi: ServiceApiService) {
+  constructor(private myapi: ServiceApiService , public afAuth: AngularFireAuth) {
 
 
   }
@@ -44,8 +45,12 @@ export class ViewScorePage implements OnInit {
           total: e.payload.doc.data()['total'.toString()],
         };
       });
-      console.log(this.userlist);
-
+      // console.log(this.userlist);
+         for (let index = 0; index < this.userlist .length; index++) {
+            if(this.userlist[index].id == null || this.userlist[index].id == ''){
+              this.userlist.splice(index, 1);
+            }           
+         }
       this.rows = this.userlist;
     });
     // read data from database

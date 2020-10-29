@@ -71,7 +71,7 @@ export class Level2Page implements OnInit {
   next(i) {
     console.log('OK status:', this.status);
     if (this.quiz[i].answer === this.status) {
-      this.correct(); 
+      this.correct(this.quiz[i].txt); 
       
       console.log('score =', this.std.state2);
     } else {
@@ -152,11 +152,11 @@ export class Level2Page implements OnInit {
     }
   }
 
-  async correct() {
+  async correct(msg) {
     let alert = await this.alertCtrl.create({
       header: 'ยินดีด้วย',
       subHeader: 'คุณตอบถูก',
-      message: 'This is an alert message.',
+      message: msg,
       buttons: [
         {
           text: 'OK',

@@ -72,7 +72,7 @@ export class Level1Page implements OnInit {
   next(i) {
     console.log('OK status:', this.status);
     if (this.quiz[i].answer === this.status) {
-      this.correct();
+      this.correct(this.quiz[i].txt);
       this.std.state1 += 1;
       console.log('score =', this.std.state1);
      
@@ -159,11 +159,11 @@ export class Level1Page implements OnInit {
     }
   }
 
-  async correct() {
+  async correct(msg) {
     let alert = await this.alertCtrl.create({
       header: 'ยินดีด้วย',
       subHeader: 'คุณตอบถูก',
-      message: 'This is an alert message.',
+      message: msg,
       buttons: [
         {
           text:'OK',

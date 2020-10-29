@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <network-security-config>
     <domain-config cleartextTrafficPermitted="true">
-<<<<<<< HEAD
         <domain includeSubdomains="true">smartlibrary.ubru.ac.th</domain>
-=======
-        <domain includeSubdomains="true">localhost</domain>
->>>>>>> update
     </domain-config>
 </network-security-config>

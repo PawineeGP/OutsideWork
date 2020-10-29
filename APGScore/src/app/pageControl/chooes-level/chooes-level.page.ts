@@ -110,24 +110,7 @@ export class ChooesLevelPage implements OnInit {
       }else if(u == 22){
         this.total_ = u+65;
       }
-      // if (u == 30) {
-      //   this.total_ = u + 70;
-      // } else if (u == 15) {
-      //   this.total_ = u + 35;
-      //   console.log('15' + this.total_);
-
-      // } else if (u == 10) {
-      //   this.total_ = 10 + 15;
-      // } else if (u <= 15 && u > 10) {
-      //   this.total_ = u + 30;
-      // } else if (u <= 30 && u > 15) {
-      //   this.total_ = u + 60;
-      // } else if (u < 10 && u > 0) {
-      //   this.total_ = u + 12;
-      // } else if (u == 0) {
-      //   this.total_ = u;
-      // }
-
+  
       this.total_ori = u;
       console.log(this.total_);
       this.ScoreState1 = this.userlist[index].mystate1;
