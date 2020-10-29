@@ -134,9 +134,9 @@ export class Level2Page implements OnInit {
         localStorage.setItem('quiz2', SET2 + '');
       }
       console.log('quiz =', this.quiz);
-      this.route.navigate([`${url}`]);
+      this.route.navigate([`${url}`], { replaceUrl: true });
     } else if (url === 'level3') {
-      this.route.navigate([`${url}`]);
+      this.route.navigate([`${url}`], { replaceUrl: true });
     } else if (url === 'level2') {
       this.random = Math.floor(Math.random() * 2) + 1;
       console.log('rd =', this.random);
@@ -148,7 +148,8 @@ export class Level2Page implements OnInit {
         localStorage.setItem('quiz2', SET2 + '');
       }
       console.log('quiz2 =', this.quiz);
-      this.route.navigate([`${url}`]);
+      // this.route.parseUrl();
+      this.route.navigate([`${url}`], { replaceUrl: true });
     }
   }
 

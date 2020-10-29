@@ -155,7 +155,7 @@ export class Level3Page implements OnInit {
         localStorage.setItem('quiz3', JSON.stringify(Q3SET2));
       }
       console.log('quiz =', this.quiz);
-      this.route.navigate([`${url}`]);
+      this.route.navigate([`${url}`], { replaceUrl: true });
     } else if (url === 'level3') {
       console.log("Q =", this.q);
 
@@ -188,7 +188,7 @@ export class Level3Page implements OnInit {
         localStorage.setItem('quiz3', JSON.stringify(Q3SET2));
       }
       console.log('quiz level3 =', this.quiz);
-      this.route.navigate([`${url}`]);
+      this.route.navigate([`${url}`], { replaceUrl: true });
     }
 
 
