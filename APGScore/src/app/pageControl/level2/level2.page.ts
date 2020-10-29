@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Question } from 'src/app/model/question';
 import { ServiceApiService } from 'src/app/service/service-api.service';
 import { AlertController } from '@ionic/angular';
+import { Q3SET1, Q3SET2 } from 'src/app/mock/mock-question3';
 
 @Component({
   selector: 'app-level2',
@@ -136,6 +137,15 @@ export class Level2Page implements OnInit {
       console.log('quiz =', this.quiz);
       this.route.navigate([`${url}`], { replaceUrl: true });
     } else if (url === 'level3') {
+      this.random = Math.floor(Math.random() * 2) + 1;
+      console.log('rd =', this.random);
+      if (this.random === 1) {
+        // this.quiz = QUESTION1;
+        localStorage.setItem('quiz3', JSON.stringify(Q3SET1) + '');
+      } else if (this.random === 2) {
+        // this.quiz = QUESTION2;
+        localStorage.setItem('quiz3', JSON.stringify(Q3SET2) + '');
+      }
       this.route.navigate([`${url}`], { replaceUrl: true });
     } else if (url === 'level2') {
       this.random = Math.floor(Math.random() * 2) + 1;
