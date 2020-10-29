@@ -31,6 +31,7 @@ export class Level1Page implements OnInit {
   };
   total_: any;
   total_ori: any;
+  index: any;
   constructor(private route: Router, private myapi: ServiceApiService, private alertCtrl: AlertController) {
     this.uid = localStorage.getItem('uid');
     console.log('uid = ' + this.uid);
@@ -60,6 +61,9 @@ export class Level1Page implements OnInit {
         };
       });
       console.log('userlist =', this.userlist);
+      this.index = this.userlist.findIndex(std => std.myuid === this.uid);
+      console.log("index vel1",this.index);
+      
     });
   }
 
@@ -119,14 +123,18 @@ export class Level1Page implements OnInit {
 
 
     console.log(url);
-    let index = this.userlist.findIndex(std => std.myuid === this.uid);
-    console.log('index:', index);
 
-    if (this.std.state1 > this.userlist[index].mystate1) {
+   
+    console.log('index:', this.index);
+    console.log('std state =',this.std.state1 );
+    console.log('userlist mystate',this.userlist[this.index]);
+
+
+    if (this.std.state1 > this.userlist[this.index].mystate1) {
       let newrecord = {};
       newrecord['state1'] = this.std.state1;
-      newrecord['total'] = this.std.state1 + this.userlist[index].mystate2 + this.userlist[index].mystate2;
-      this.myapi.updateData(this.userlist[index].id, newrecord); // update
+      newrecord['total'] = this.std.state1 + this.userlist[this.index].mystate2 + this.userlist[this.index].mystate2;
+      this.myapi.updateData(this.userlist[this.index].id, newrecord); // update
       console.log(newrecord);
     }
 

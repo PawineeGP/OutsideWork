@@ -114,7 +114,7 @@ export class Level2Page implements OnInit {
     console.log(url);
     let index = this.userlist.findIndex(std => std.myuid === this.uid);
     console.log('index:', index);
-
+  
     if (this.std.state2 > this.userlist[index].mystate2) {
       let newrecord = {};
       newrecord['state2'] = this.std.state2;
@@ -128,10 +128,10 @@ export class Level2Page implements OnInit {
       console.log('rd =', this.random);
       if (this.random === 1) {
         // this.quiz = QUESTION1;
-        localStorage.setItem('quiz', SET1 + '');
+        localStorage.setItem('quiz2', SET1 + '');
       } else if (this.random === 2) {
         // this.quiz = QUESTION2;
-        localStorage.setItem('quiz', SET2 + '');
+        localStorage.setItem('quiz2', SET2 + '');
       }
       console.log('quiz =', this.quiz);
       this.route.navigate([`${url}`]);
@@ -142,12 +142,12 @@ export class Level2Page implements OnInit {
       console.log('rd =', this.random);
       if (this.random === 1) {
         this.quiz = SET1;
-        localStorage.setItem('quiz', SET1 + '');
+        localStorage.setItem('quiz2', SET1 + '');
       } else if (this.random === 2) {
         this.quiz = SET2;
-        localStorage.setItem('quiz', SET2 + '');
+        localStorage.setItem('quiz2', SET2 + '');
       }
-      console.log('quiz =', this.quiz);
+      console.log('quiz2 =', this.quiz);
       this.route.navigate([`${url}`]);
     }
   }

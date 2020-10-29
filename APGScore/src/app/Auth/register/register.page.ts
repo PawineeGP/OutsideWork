@@ -52,7 +52,11 @@ export class RegisterPage implements OnInit {
           record['total'] = this.std.total;
           this.myapi
             .createData(record)
-            .then(() => {              
+            .then(() => {       
+              localStorage.setItem('uid', auth.uid);
+              localStorage.setItem('quiz', '');
+              localStorage.setItem('quiz2', '');
+              localStorage.setItem('quiz3', '');       
               this.route.navigateByUrl('/video-tutorial');
               this.loading.dismiss();
             })

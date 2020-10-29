@@ -33,11 +33,11 @@ export class Level3Page implements OnInit {
   total_: any;
   total_ori: any;
   chk_img_q: boolean = true;
-
+  q: any;
   constructor(private route: Router, private myapi: ServiceApiService, private alertCtrl: AlertController) {
     this.uid = localStorage.getItem('uid');
-    let q = localStorage.getItem('quiz3');
-    this.quiz = JSON.parse(q);
+    this.q = localStorage.getItem('quiz3');
+    this.quiz = JSON.parse(this.q);
     console.log(this.quiz);
     this.problem = this.quiz[0].quiz;
     console.log('problem =', this.problem);
@@ -148,42 +148,50 @@ export class Level3Page implements OnInit {
       this.random = Math.floor(Math.random() * 2) + 1;
       console.log('rd =', this.random);
       if (this.random === 1) {
-        this.quiz = Q3SET1;
-        localStorage.setItem('quiz', Q3SET1 + '');
+        // this.quiz = QUESTION1;
+        localStorage.setItem('quiz3', JSON.stringify(Q3SET1));
       } else if (this.random === 2) {
-        this.quiz = Q3SET2;
-        localStorage.setItem('quiz', Q3SET2 + '');
+        // this.quiz = QUESTION2;
+        localStorage.setItem('quiz3', JSON.stringify(Q3SET2));
       }
       console.log('quiz =', this.quiz);
       this.route.navigate([`${url}`]);
     } else if (url === 'level3') {
+      console.log("Q =", this.q);
 
       this.random = Math.floor(Math.random() * 2) + 1;
-      console.log('rd3 =', this.random);
+      console.log('rd =', this.random);
 
       if (this.random === 1) {
         this.quiz = Q3SET1;
-        localStorage.setItem('quiz', Q3SET1 + '');
+        localStorage.setItem('quiz3', JSON.stringify(Q3SET1));
+        this.problem = this.quiz[0].quiz;
+        if (this.problem[0].option1[0] != 'h') {
+          this.chk_img_q = false;
+          console.log('h = false');
+
+        } else {
+          this.chk_img_q = true;
+          console.log('h = true');
+        }
       } else if (this.random === 2) {
         this.quiz = Q3SET2;
-        localStorage.setItem('quiz', Q3SET2 + '');
-      }
-      console.log('quiz =', this.quiz);
+        this.problem = this.quiz[0].quiz;
+        if (this.problem[0].option1[0] != 'h') {
+          this.chk_img_q = false;
+          console.log('h = false');
 
-      this.route.navigate([`${url}`]);
-    } else if (url === 'level2') {
-      // this.random = Math.floor(Math.random() * 2) + 1;
-      // console.log('rd =', this.random);
-      // if (this.random === 1) {
-      //   this.quiz = SET1;
-      //   localStorage.setItem('quiz', SET1 + '');
-      // } else if (this.random === 2) {
-      //   this.quiz = SET2;
-      //   localStorage.setItem('quiz', SET2 + '');
-      // }
-      // console.log('quiz =', this.quiz);
+        } else {
+          this.chk_img_q = true;
+          console.log('h = true');
+        }
+        localStorage.setItem('quiz3', JSON.stringify(Q3SET2));
+      }
+      console.log('quiz level3 =', this.quiz);
       this.route.navigate([`${url}`]);
     }
+
+
   }
 
   async correct_img(mes_img) {

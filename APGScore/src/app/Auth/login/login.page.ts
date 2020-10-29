@@ -38,6 +38,7 @@ export class LoginPage implements OnInit {
       console.log('userlist =', this.userlist);
     });
   }
+
   signin() {
     console.log(this.std);
     this.showLoading();
@@ -45,12 +46,23 @@ export class LoginPage implements OnInit {
       .then((res) => {
         this.afAuth.authState.subscribe(auth => {
           if (auth != null) {
-            localStorage.setItem('uid', auth.uid);
+            localStorage.setItem('uid', auth.uid);           
+            localStorage.setItem('quiz', '');
+            localStorage.setItem('quiz2', '');
+            localStorage.setItem('quiz3', '');
             let index = this.userlist.findIndex(std => std.myuid === auth.uid);
             if (this.userlist[index].mystate1 !== 0 || this.userlist[index].mystate2 !== 0 || this.userlist[index].mystate3 !== 0) {
+              localStorage.setItem('uid',  auth.uid);
+              localStorage.setItem('quiz', '');
+              localStorage.setItem('quiz2', '');
+              localStorage.setItem('quiz3', '');
               this.route.navigateByUrl('/chooes-level');
               this.loading.dismiss();
             } else if (this.userlist[index].mystate1 === 0 || this.userlist[index].mystate2 === 0 || this.userlist[index].mystate3 === 0) {
+              localStorage.setItem('uid',  auth.uid);
+              localStorage.setItem('quiz', '');
+              localStorage.setItem('quiz2', '');
+              localStorage.setItem('quiz3', '');
               this.route.navigateByUrl('/video-tutorial');
               this.loading.dismiss();
             }

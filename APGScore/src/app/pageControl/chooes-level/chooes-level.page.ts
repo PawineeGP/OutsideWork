@@ -137,9 +137,13 @@ export class ChooesLevelPage implements OnInit {
     if (this.random === 1) {
       // this.quiz = QUESTION1;
       localStorage.setItem('quiz', JSON.stringify(QUESTION1) + '');
+      localStorage.setItem('quiz2', JSON.stringify(SET1) + '');
+      localStorage.setItem('quiz3', JSON.stringify(Q3SET1) + '');
     } else if (this.random === 2) {
       // this.quiz = QUESTION2;
       localStorage.setItem('quiz', JSON.stringify(QUESTION2) + '');
+      localStorage.setItem('quiz2', JSON.stringify(SET2) + '');
+      localStorage.setItem('quiz3', JSON.stringify(Q3SET1) + '');
     }
     // console.log('QuIz =', this.quiz1);
     this.route.navigateByUrl('/level1');
@@ -150,7 +154,9 @@ export class ChooesLevelPage implements OnInit {
     console.log('rd =', this.random);
     if (this.random === 1) {
       // this.quiz = QUESTION1;
+      localStorage.setItem('quiz', JSON.stringify(QUESTION1) + '');
       localStorage.setItem('quiz2', JSON.stringify(SET1) + '');
+      localStorage.setItem('quiz3', JSON.stringify(Q3SET1) + '');
     } else if (this.random === 2) {
       // this.quiz = QUESTION2;
       localStorage.setItem('quiz2', JSON.stringify(SET2) + '');
@@ -165,10 +171,14 @@ export class ChooesLevelPage implements OnInit {
     console.log('rd =', this.random);
     if (this.random === 1) {
       // this.quiz = QUESTION1;
+      localStorage.setItem('quiz', JSON.stringify(QUESTION1) + '');
+      localStorage.setItem('quiz2', JSON.stringify(SET1) + '');
       localStorage.setItem('quiz3', JSON.stringify(Q3SET1) + '');
     } else if (this.random === 2) {
       // this.quiz = QUESTION2;
-      localStorage.setItem('quiz3', JSON.stringify(Q3SET2) + '');
+      localStorage.setItem('quiz', JSON.stringify(QUESTION2) + '');
+      localStorage.setItem('quiz2', JSON.stringify(SET2) + '');
+      localStorage.setItem('quiz3', JSON.stringify(Q3SET1) + '');
     }
     // console.log('QuIz2 =', this.quiz);
     this.route.navigateByUrl('/level3');
