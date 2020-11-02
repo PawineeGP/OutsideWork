@@ -188,7 +188,7 @@ export class ChooesLevelPage implements OnInit {
       // this.quiz = QUESTION2;
       localStorage.setItem('quiz', JSON.stringify(QUESTION2) + '');
       localStorage.setItem('quiz2', JSON.stringify(SET2) + '');
-      localStorage.setItem('quiz3', JSON.stringify(Q3SET1) + '');
+      localStorage.setItem('quiz3', JSON.stringify(Q3SET2) + '');
     }
     // console.log('QuIz2 =', this.quiz);
     this.route.navigateByUrl('/level3');
