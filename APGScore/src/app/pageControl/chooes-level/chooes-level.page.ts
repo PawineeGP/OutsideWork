@@ -32,10 +32,9 @@ export class ChooesLevelPage implements OnInit {
   ScoreState2;
   chk_scoreState1: boolean;
   chk_scoreState2: boolean;
-
-  public timer = 60;
-
-  public m = 1;
+  maxtime: any=60
+  hidevalue:boolean;
+  timer:any;
 
   constructor(
     private route: Router,
@@ -43,7 +42,7 @@ export class ChooesLevelPage implements OnInit {
     private myapi: ServiceApiService
   ) {
     this.getDetail();
-    this.start();
+    // this.StartTimer();
     if (this.isAdmin == 'admin@gmail.com') {
       this.chk_admin = true;
     } else {
@@ -54,9 +53,25 @@ export class ChooesLevelPage implements OnInit {
   ngOnInit() {
   }
 
-  start(){
-    
-  }
+  // StartTimer(){
+  //   this.timer = setTimeout(x => 
+  //     {
+  //         if(this.maxtime <= 0) { }
+  //         this.maxtime -= 1;
+
+  //         if(this.maxtime>=0){
+  //           this.hidevalue = false;
+  //           this.StartTimer();
+  //         }
+          
+  //         else{
+  //             this.hidevalue = true;
+  //         }
+
+  //     }, 1000);
+ 
+  //     console.log('Timer Maxtime  = ',this.maxtime);  
+  // }
 
   signout() {
     this.afAuth.signOut()
@@ -188,7 +203,7 @@ export class ChooesLevelPage implements OnInit {
       // this.quiz = QUESTION2;
       localStorage.setItem('quiz', JSON.stringify(QUESTION2) + '');
       localStorage.setItem('quiz2', JSON.stringify(SET2) + '');
-      localStorage.setItem('quiz3', JSON.stringify(Q3SET2) + '');
+      localStorage.setItem('quiz3', JSON.stringify(Q3SET1) + '');
     }
     // console.log('QuIz2 =', this.quiz);
     this.route.navigateByUrl('/level3');

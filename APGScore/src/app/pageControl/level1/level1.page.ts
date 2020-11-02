@@ -32,15 +32,20 @@ export class Level1Page implements OnInit {
   total_: any;
   total_ori: any;
   index: any;
+  maxtime: any=60
+  hidevalue:boolean;
+  timer:any;
+
   constructor(private route: Router, private myapi: ServiceApiService, private alertCtrl: AlertController) {
     this.uid = localStorage.getItem('uid');
     console.log('uid = ' + this.uid);
-
+   
     // this.lodeData();
     // console.log('data:', this.lodeData());
-
+    this.StartTimer();
     let q = localStorage.getItem('quiz');
     this.quiz = JSON.parse(q);
+
     console.log('quiz =', this.quiz[0].problem, 'ans =', this.quiz[0].answer);
     console.log(JSON.parse(q));
 
@@ -67,6 +72,26 @@ export class Level1Page implements OnInit {
     });
   }
 
+  StartTimer(){
+    this.timer = setTimeout(x => 
+      {
+          if(this.maxtime <= 0) { }
+          this.maxtime -= 1;
+
+          if(this.maxtime>=0){
+            this.hidevalue = false;
+            this.StartTimer();
+          }
+          
+          else{
+              this.hidevalue = true;
+          }
+
+      }, 1000);
+ 
+      console.log('Timer Maxtime  = ',this.maxtime);  
+  }
+
   onCheck(str: string) {
     console.log('*****************');
     this.status = str;
@@ -84,8 +109,7 @@ export class Level1Page implements OnInit {
       this.result_was_wrong(this.quiz[i].txt);
       this.std.state1 += 0;
       console.log('score =', this.std.state1);
-      console.log(this.quiz[i].txt);
-      
+      console.log(this.quiz[i].txt);     
      
     }
     // this.quiz.splice(0, 1);
