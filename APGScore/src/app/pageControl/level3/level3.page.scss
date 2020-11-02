@@ -4,6 +4,12 @@
 .bg-level3{
   --background: url(../../../assets/bg/bg-level1-1.png) 0 0/100% 100% no-repeat;
 }
+.my-custom-class {
+  --background: #ff0000;
+}
+
+
+
 
 #container {
   text-align: center;  

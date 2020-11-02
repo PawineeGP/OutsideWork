@@ -13,7 +13,7 @@
                       <source src="{{ quiz[i].video }}" type="video/mp4">
                     </video>
                     <div class="spacer" style="width: 300px; height: 10px;"></div>
-                    <h4> <u>สถานการณ์:</u> {{ quiz[i].situation }}</h4>
+                    <!-- <h4> <u>สถานการณ์:</u> {{ quiz[i].situation }}</h4> -->
                   </div>
                 </ion-label>
               </ion-list-header>
@@ -164,7 +164,7 @@
 
                     <ion-col>
                       <div>
-                        <input type="radio" id="control_08" name="select" (click)="onCheck('7')" slot="start" value="8">
+                        <input type="radio" id="control_08" name="select" (click)="onCheck('8')" slot="start" value="8">
                         <label for="control_08">
                           <p style="color: black;">{{ problem[0].option8 }}</p>
                         </label>
@@ -231,12 +231,12 @@
           </ion-button>
         </ion-col>
 
-        <ion-col>
+        <!-- <ion-col>
           <ion-button color="primary" (click)="setScore('level3')">
             <ion-icon slot="end" name="chevron-forward-outline"></ion-icon>
             เล่นอีกครั้ง
           </ion-button>
-        </ion-col>
+        </ion-col> -->
       </ion-row>
     </div>
   </div>

@@ -57,7 +57,7 @@ export class RegisterPage implements OnInit {
               localStorage.setItem('quiz', '');
               localStorage.setItem('quiz2', '');
               localStorage.setItem('quiz3', '');       
-              this.route.navigateByUrl('/video-tutorial');
+              this.route.navigateByUrl('/video-tutorial',{ replaceUrl: true });
               this.loading.dismiss();
             })
             .catch(error => {

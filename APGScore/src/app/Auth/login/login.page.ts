@@ -56,14 +56,14 @@ export class LoginPage implements OnInit {
               localStorage.setItem('quiz', '');
               localStorage.setItem('quiz2', '');
               localStorage.setItem('quiz3', '');
-              this.route.navigateByUrl('/chooes-level');
+              this.route.navigateByUrl('/chooes-level',{ replaceUrl: true });
               this.loading.dismiss();
             } else if (this.userlist[index].mystate1 === 0 || this.userlist[index].mystate2 === 0 || this.userlist[index].mystate3 === 0) {
               localStorage.setItem('uid',  auth.uid);
               localStorage.setItem('quiz', '');
               localStorage.setItem('quiz2', '');
               localStorage.setItem('quiz3', '');
-              this.route.navigateByUrl('/video-tutorial');
+              this.route.navigateByUrl('/video-tutorial',{ replaceUrl: true });
               this.loading.dismiss();
             }
           } else {

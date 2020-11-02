@@ -32,12 +32,18 @@ export class ChooesLevelPage implements OnInit {
   ScoreState2;
   chk_scoreState1: boolean;
   chk_scoreState2: boolean;
+
+  public timer = 60;
+
+  public m = 1;
+
   constructor(
     private route: Router,
     public afAuth: AngularFireAuth,
     private myapi: ServiceApiService
   ) {
     this.getDetail();
+    this.start();
     if (this.isAdmin == 'admin@gmail.com') {
       this.chk_admin = true;
     } else {
@@ -46,6 +52,10 @@ export class ChooesLevelPage implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  start(){
+    
   }
 
   signout() {

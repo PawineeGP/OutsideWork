@@ -83,9 +83,9 @@ export class Level3Page implements OnInit {
     console.log('OK status:', this.status);
     if (this.problem[i].answer === this.status) {
       if (this.problem[i].txt.slice(0, 1) != 'h') {
-        this.correct(this.problem[i].txt);
+        this.correct(this.problem[i].txt ,this.quiz[i].situation);
       } else {
-        this.correct_img(this.problem[i].txt);
+        this.correct_img(this.problem[i].txt,this.quiz[i].situation);
       }
       this.std.state3 += 1;
       console.log('score =', this.std.state3);
@@ -94,11 +94,11 @@ export class Level3Page implements OnInit {
 
       if (this.problem[i].txt.slice(0, 1) != 'h') {
         console.log('text ');
-        this.result_was_wrong(this.problem[i].txt);
+        this.result_was_wrong(this.problem[i].txt,this.quiz[i].situation);
 
       } else {
         console.log('img alert');
-        this.resule_was_wrong_img(this.problem[i].txt);
+        this.resule_was_wrong_img(this.problem[i].txt,this.quiz[i].situation);
       }
       this.std.state3 += 0;
       console.log('score =', this.std.state3);
@@ -111,24 +111,23 @@ export class Level3Page implements OnInit {
     console.log(u);
 
     this.total_ori = u;
-    if (u == 10) {
-      this.total_ = u + 90;
-    } else if (u == 5) {
-      this.total_ = u + 45;
-      console.log('15' + this.total_);
-
+    if (u == 6) {
+      this.total_ = u + 94;
+    } else if (u == 3) {
+      this.total_ = u + 47;
     } else if (u == 1) {
-      this.total_ = u + 30;
-    } else if (u <= 5 && u > 1) {
-      this.total_ = u + 15;
-    } else if (u <= 10 && u > 5) {
-      this.total_ = u + 80;
+      this.total_ = u + 36;
+    } else if (u < 3 && u > 1) {
+      this.total_ = u + 17;
+    } else if (u == 5) {
+      this.total_ = u + 86;
     } else if (u < 1 && u > 0) {
-      this.total_ = u + 30;
+      this.total_ = u + 36;
     } else if (u == 0) {
       this.total_ = u;
+    }else if (u == 4) {
+      this.total_ =u + 67;
     }
-
   }
 
   setScore(url: string) {
@@ -194,15 +193,17 @@ export class Level3Page implements OnInit {
 
   }
 
-  async correct_img(mes_img) {
+  async correct_img(mes_img,text) {
     let alert = await this.alertCtrl.create({
-      header: 'ยินดีด้วย',
-      subHeader: 'คุณตอบถูก',
-      message: `<img src="${mes_img}" alt="g-maps" style="border-radius: 2px">`,
+      header: 'ยินดีด้วย : คุณตอบถูก',
+      subHeader: 'สถานการณ์ : '+text,
+      message: 'คำตอบคือ '+`<img src="${mes_img}" alt="g-maps" style="border-radius: 2px">`,
+      cssClass:'my-custom-class',
       buttons: [
         {
-          text: 'OK',
+           text: 'ตกลง',
           role: 'ok',
+          cssClass: 'secondary',
           handler: () => {
 
             if (this.problem.length > 1) {
@@ -245,15 +246,17 @@ export class Level3Page implements OnInit {
     });
     await alert.present();
   }
-  async correct(mes) {
+  async correct(mes,text) {
     let alert = await this.alertCtrl.create({
-      header: 'ยินดีด้วย',
-      subHeader: 'คุณตอบถูก',
-      message: mes,
+      header: 'ยินดีด้วย : คุณตอบถูก ',
+      subHeader: 'สถานการณ์ : '+text,
+      message: 'คำตอบ : ' +mes,
+      cssClass:'my-custom-class',
       buttons: [
         {
-          text: 'OK',
+           text: 'ตกลง',
           role: 'ok',
+          cssClass: 'secondary',
           handler: () => {
 
             if (this.problem.length > 1) {
@@ -297,15 +300,17 @@ export class Level3Page implements OnInit {
     await alert.present();
   }
 
-  async resule_was_wrong_img(txt_img) {
+  async resule_was_wrong_img(txt_img, text) {
     let alert = await this.alertCtrl.create({
-      header: 'คุณตอบผิด',
-      subHeader: 'เฉลย',
-      message: `<img src="${txt_img}" alt="g-maps" style="border-radius: 2px">`,
+      header: 'คุณตอบผิด !! ',
+      subHeader: 'สถานการณ์ : '+text,
+      message: 'เฉลย'+`<img src="${txt_img}" alt="g-maps" style="border-radius: 2px">`,
+      cssClass:'my-custom-class',
       buttons: [
         {
-          text: 'OK',
+           text: 'ตกลง',
           role: 'ok',
+          cssClass: 'secondary',
           handler: () => {
 
             if (this.problem.length > 1) {
@@ -351,15 +356,17 @@ export class Level3Page implements OnInit {
     await alert.present();
   }
 
-  async result_was_wrong(txt) {
+  async result_was_wrong(txt,text) {
     let alert = await this.alertCtrl.create({
-      header: 'คุณตอบผิด',
-      subHeader: 'เฉลย',
-      message: txt,
+      header: 'คุณตอบผิด!!',
+      subHeader: 'สถานการณ์ : '+text,
+      message: 'เฉลย : '+txt,
+      cssClass:'my-custom-class',
       buttons: [
         {
-          text: 'OK',
+           text: 'ตกลง',
           role: 'ok',
+          cssClass: 'secondary',
           handler: () => {
 
             if (this.problem.length > 1) {

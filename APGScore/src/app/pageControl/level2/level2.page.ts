@@ -155,12 +155,13 @@ export class Level2Page implements OnInit {
 
   async correct(msg) {
     let alert = await this.alertCtrl.create({
-      header: 'ยินดีด้วย',
-      subHeader: 'คุณตอบถูก',
-      message: msg,
+      header: 'ยินดีด้วย คุณตอบถูก',
+      // subHeader: 'คุณตอบถูก',
+      message: 'คำตอบคือ :  '+msg,
+      cssClass:'my-custom-class',
       buttons: [
         {
-          text: 'OK',
+         text: 'ตกลง',
           role: 'ok',
           handler: () => {
             this.std.state2 += 1;    
@@ -178,12 +179,13 @@ export class Level2Page implements OnInit {
 
   async result_was_wrong(txt) {
     let alert = await this.alertCtrl.create({
-      header: 'คุณตอบผิด',
-      subHeader: 'เฉลย',
-      message: txt,      
+      header: 'คุณตอบผิด !!',
+      // subHeader: 'เฉลย',
+      message: 'เฉลย : '+txt,    
+      cssClass:'my-custom-class',
       buttons: [
         {
-          text: 'OK',
+          text: 'ตกลง',
           role: 'ok',
           handler: () => {
             this.std.state2 += 0;   
