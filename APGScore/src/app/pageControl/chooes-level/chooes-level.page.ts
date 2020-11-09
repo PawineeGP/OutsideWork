@@ -36,6 +36,10 @@ export class ChooesLevelPage implements OnInit {
   hidevalue:boolean;
   timer:any;
 
+  reload_page = true;
+
+  // window.location.reload();
+
   constructor(
     private route: Router,
     public afAuth: AngularFireAuth,
@@ -47,6 +51,12 @@ export class ChooesLevelPage implements OnInit {
       this.chk_admin = true;
     } else {
       this.chk_admin = false;
+    }
+
+    if (this.reload_page == true) {
+      // this.reloadPage();
+      // window.location.href = 'chooes-level';
+      this.reload_page = false;
     }
   }
 
@@ -72,6 +82,11 @@ export class ChooesLevelPage implements OnInit {
  
   //     console.log('Timer Maxtime  = ',this.maxtime);  
   // }
+
+  async reloadPage() {
+    await window.location.reload();
+
+  }
 
   signout() {
     this.afAuth.signOut()

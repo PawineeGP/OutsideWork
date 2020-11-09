@@ -32,17 +32,20 @@ export class Level1Page implements OnInit {
   total_: any;
   total_ori: any;
   index: any;
-  maxtime: any=60
-  hidevalue:boolean;
-  timer:any;
+  maxtime: any = 60;
+  hidevalue: boolean;
+  timer: any;
+
+  reload_page = true;
 
   constructor(private route: Router, private myapi: ServiceApiService, private alertCtrl: AlertController) {
     this.uid = localStorage.getItem('uid');
     console.log('uid = ' + this.uid);
-   
+
     // this.lodeData();
     // console.log('data:', this.lodeData());
-    this.StartTimer();
+    // clearInterval(this.timer);
+    // this.StartTimer(this.maxtime);
     let q = localStorage.getItem('quiz');
     this.quiz = JSON.parse(q);
 
@@ -67,29 +70,51 @@ export class Level1Page implements OnInit {
       });
       console.log('userlist =', this.userlist);
       this.index = this.userlist.findIndex(std => std.myuid === this.uid);
-      console.log("index vel1",this.index);
-      
+      console.log('index vel1', this.index);
+      // clearInterval(setTimeout( x => {}));
+      this.StartTimer(this.maxtime);
     });
   }
 
-  StartTimer(){
-    this.timer = setTimeout(x => 
-      {
-          if(this.maxtime <= 0) { }
-          this.maxtime -= 1;
+  StartTimer(maxtime: any) {
+    this.timer = setTimeout(x => {
+      // if (this.maxtime <= 0) { }
+      // this.maxtime -= 1;
 
-          if(this.maxtime>=0){
-            this.hidevalue = false;
-            this.StartTimer();
-          }
-          
-          else{
-              this.hidevalue = true;
-          }
+      if (maxtime > 0) {
+        maxtime -= 1;
+        this.maxtime = maxtime;
+      } else if (maxtime === 0) {
+        this.maxtime = 0;
+        return;
+      }
 
-      }, 1000);
- 
-      console.log('Timer Maxtime  = ',this.maxtime);  
+      if (maxtime >= 0) {
+        this.hidevalue = false;
+        if (maxtime > 0) {
+          this.StartTimer(maxtime);
+        } else if (maxtime === 0) {
+          // clearInterval(this.timer);
+          // this.maxtime = 60;
+          this.next(0);
+        }
+        // this.StartTimer();
+      }
+
+      else {
+        this.hidevalue = true;
+      }
+
+    }, 1000);
+    // if (this.reload_page == true) {
+    //   clearInterval(this.timer);
+    //   this.reload_page = false;
+    //   console.log('reload_page', this.reload_page);
+    //   this.StartTimer(maxtime);
+    // } else {
+    // console.log('โหลดเสร็จแล้ว');
+    // }
+    console.log('Timer Maxtime  = ', maxtime);
   }
 
   onCheck(str: string) {
@@ -99,18 +124,19 @@ export class Level1Page implements OnInit {
   }
 
   next(i) {
+    // this.StartTimer();
     console.log('OK status:', this.status);
     if (this.quiz[i].answer === this.status) {
       this.correct(this.quiz[i].txt);
       this.std.state1 += 1;
       console.log('score =', this.std.state1);
-     
+
     } else {
       this.result_was_wrong(this.quiz[i].txt);
       this.std.state1 += 0;
       console.log('score =', this.std.state1);
-      console.log(this.quiz[i].txt);     
-     
+      console.log(this.quiz[i].txt);
+
     }
     // this.quiz.splice(0, 1);
     // console.log('count =', this.quiz.length);
@@ -144,14 +170,11 @@ export class Level1Page implements OnInit {
   }
 
   setScore(url: string) {
-
-
+    clearInterval(this.timer);
     console.log(url);
-
-   
     console.log('index:', this.index);
-    console.log('std state =',this.std.state1 );
-    console.log('userlist mystate',this.userlist[this.index]);
+    console.log('std state =', this.std.state1);
+    console.log('userlist mystate', this.userlist[this.index]);
 
 
     if (this.std.state1 > this.userlist[this.index].mystate1) {
@@ -174,12 +197,12 @@ export class Level1Page implements OnInit {
       }
       console.log('quiz =', this.quiz);
       this.route.navigate([`${url}`], { replaceUrl: true });
-    } 
-    else if (url === 'level2') {      
+    }
+    else if (url === 'level2') {
       this.route.navigate([`${url}`], { replaceUrl: true });
 
     }
-     else if (url === 'level1') {
+    else if (url === 'level1') {
       this.random = Math.floor(Math.random() * 2) + 1;
       console.log('rd =', this.random);
       if (this.random === 1) {
@@ -198,21 +221,24 @@ export class Level1Page implements OnInit {
     let alert = await this.alertCtrl.create({
       header: 'ยินดีด้วย คุณตอบถูก',
       // subHeader: 'คุณตอบถูก',
-      message: 'คำตอบคือ :  '+msg,
-      cssClass:'my-custom-class',
+      message: 'คำตอบคือ :  ' + msg,
+      cssClass: 'my-custom-class',
       buttons: [
         {
           text: 'ตกลง',
-          role:'ok',
+          role: 'ok',
           handler: () => {
             this.quiz.splice(0, 1);
             console.log('count =', this.quiz.length);
             console.log('catd =', this.quiz);
             this.status = '';
+            clearInterval(this.timer);
+            this.maxtime = 60;
+            this.StartTimer(this.maxtime);
             // console.log('Cancel clicked');
           }
         }
-      ],backdropDismiss: false
+      ], backdropDismiss: false
     });
     await alert.present();
   }
@@ -221,22 +247,25 @@ export class Level1Page implements OnInit {
     let alert = await this.alertCtrl.create({
       header: 'คุณตอบผิด !!',
       // subHeader: 'เฉลย',
-      message: 'เฉลย : '+txt,
-      cssClass:'my-custom-class',
+      message: 'เฉลย : ' + txt,
+      cssClass: 'my-custom-class',
       buttons: [
         {
           text: 'ตกลง',
-          role:'ok',
+          role: 'ok',
           handler: () => {
             this.quiz.splice(0, 1);
             console.log('count =', this.quiz.length);
             console.log('catd =', this.quiz);
             this.status = '';
+            clearInterval(this.timer);
+            this.maxtime = 60;
+            this.StartTimer(this.maxtime);
             // console.log('Cancel clicked');
           }
         }
-      ],backdropDismiss: false
-     
+      ], backdropDismiss: false
+
     });
     await alert.present();
   }
