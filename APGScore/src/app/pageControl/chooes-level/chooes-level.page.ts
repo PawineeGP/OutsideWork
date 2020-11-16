@@ -8,6 +8,8 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { Router } from '@angular/router';
 import { SET1, SET2 } from 'src/app/mock/mock-question2';
 
+import { Platform } from '@ionic/angular';
+
 @Component({
   selector: 'app-chooes-level',
   templateUrl: './chooes-level.page.html',
@@ -43,7 +45,8 @@ export class ChooesLevelPage implements OnInit {
   constructor(
     private route: Router,
     public afAuth: AngularFireAuth,
-    private myapi: ServiceApiService
+    private myapi: ServiceApiService,
+    private platform: Platform
   ) {
     this.getDetail();
     // this.StartTimer();
@@ -58,6 +61,14 @@ export class ChooesLevelPage implements OnInit {
       // window.location.href = 'chooes-level';
       this.reload_page = false;
     }
+
+    this.platform.backButton.subscribeWithPriority(1000000, () => {
+      if (this.constructor.name == 'ChooesLevelPage') {
+        if (window.confirm('do you want to exit app.')) {
+          navigator['app'].exitApp();
+        }
+      }
+    });
   }
 
   ngOnInit() {

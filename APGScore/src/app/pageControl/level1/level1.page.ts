@@ -5,6 +5,8 @@ import { QUESTION1, QUESTION2 } from './../../mock/mock-question';
 import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
 
+import { Platform } from '@ionic/angular';
+
 @Component({
   selector: 'app-level1',
   templateUrl: './level1.page.html',
@@ -38,7 +40,7 @@ export class Level1Page implements OnInit {
 
   reload_page = true;
 
-  constructor(private route: Router, private myapi: ServiceApiService, private alertCtrl: AlertController) {
+  constructor(private route: Router, private myapi: ServiceApiService, private alertCtrl: AlertController, private platform: Platform) {
     this.uid = localStorage.getItem('uid');
     console.log('uid = ' + this.uid);
 
@@ -51,6 +53,14 @@ export class Level1Page implements OnInit {
 
     console.log('quiz =', this.quiz[0].problem, 'ans =', this.quiz[0].answer);
     console.log(JSON.parse(q));
+
+    this.platform.backButton.subscribeWithPriority(1000000, () => {
+      if (this.constructor.name == 'Level1Page') {
+        if (window.confirm('do you want to exit app.')) {
+          navigator['app'].exitApp();
+        }
+      }
+    });
 
   }
 
@@ -76,46 +86,43 @@ export class Level1Page implements OnInit {
     });
   }
 
-  StartTimer(maxtime: any) {
-    this.timer = setTimeout(x => {
-      // if (this.maxtime <= 0) { }
-      // this.maxtime -= 1;
+  // StartTimer1(maxtime: any) {
+  //   this.timer = setTimeout(x => {
+  //     // if (this.maxtime <= 0) { }
+  //     // this.maxtime -= 1;
 
-      if (maxtime > 0) {
-        maxtime -= 1;
-        this.maxtime = maxtime;
-      } else if (maxtime === 0) {
-        this.maxtime = 0;
-        return;
-      }
+  //     if (maxtime > 0) {
+  //       maxtime -= 1;
+  //       this.maxtime = maxtime;
+  //     } else if (maxtime === 0) {
+  //       this.maxtime = 0;
+  //       return;
+  //     }
 
-      if (maxtime >= 0) {
-        this.hidevalue = false;
-        if (maxtime > 0) {
-          this.StartTimer(maxtime);
-        } else if (maxtime === 0) {
-          // clearInterval(this.timer);
-          // this.maxtime = 60;
-          this.next(0);
-        }
-        // this.StartTimer();
-      }
+  //     if (maxtime >= 0) {
+  //       this.hidevalue = false;
+  //       if (maxtime > 0) {
+  //         this.StartTimer(maxtime);
+  //       } else if (maxtime === 0) {
+  //         this.next(0);
+  //       }
+  //     }
 
-      else {
-        this.hidevalue = true;
-      }
+  //     else {
+  //       this.hidevalue = true;
+  //     }
 
-    }, 1000);
-    // if (this.reload_page == true) {
-    //   clearInterval(this.timer);
-    //   this.reload_page = false;
-    //   console.log('reload_page', this.reload_page);
-    //   this.StartTimer(maxtime);
-    // } else {
-    // console.log('โหลดเสร็จแล้ว');
-    // }
-    console.log('Timer Maxtime  = ', maxtime);
-  }
+  //   }, 1000);
+  //   // if (this.reload_page == true) {
+  //   //   clearInterval(this.timer);
+  //   //   this.reload_page = false;
+  //   //   console.log('reload_page', this.reload_page);
+  //   //   this.StartTimer(maxtime);
+  //   // } else {
+  //   // console.log('โหลดเสร็จแล้ว');
+  //   // }
+  //   console.log('Timer Maxtime  = ', maxtime);
+  // }
 
   onCheck(str: string) {
     console.log('*****************');
@@ -125,6 +132,7 @@ export class Level1Page implements OnInit {
 
   next(i) {
     // this.StartTimer();
+    clearInterval(this.timer);
     console.log('OK status:', this.status);
     if (this.quiz[i].answer === this.status) {
       this.correct(this.quiz[i].txt);
@@ -217,6 +225,39 @@ export class Level1Page implements OnInit {
     }
   }
 
+  StartTimer(maxtime: any) {
+    console.log('this.quiz.length =', this.quiz.length);
+    if (this.quiz.length != 0) {
+      this.timer = setTimeout(x => {
+        // if (this.maxtime <= 0) { }
+        // this.maxtime -= 1;
+
+        if (maxtime > 0) {
+          maxtime -= 1;
+          this.maxtime = maxtime;
+        } else if (maxtime === 0) {
+          this.maxtime = 0;
+          return;
+        }
+
+        if (maxtime >= 0) {
+          this.hidevalue = false;
+          if (maxtime > 0) {
+            this.StartTimer(maxtime);
+          } else if (maxtime === 0) {
+            this.next(0);
+          }
+        }
+
+        else {
+          this.hidevalue = true;
+        }
+
+      }, 1000);
+    }
+    console.log('Timer Maxtime  = ', maxtime);
+  }
+
   async correct(msg) {
     let alert = await this.alertCtrl.create({
       header: 'ยินดีด้วย คุณตอบถูก',
@@ -232,7 +273,7 @@ export class Level1Page implements OnInit {
             console.log('count =', this.quiz.length);
             console.log('catd =', this.quiz);
             this.status = '';
-            clearInterval(this.timer);
+            // clearInterval(this.timer);
             this.maxtime = 60;
             this.StartTimer(this.maxtime);
             // console.log('Cancel clicked');
@@ -258,7 +299,7 @@ export class Level1Page implements OnInit {
             console.log('count =', this.quiz.length);
             console.log('catd =', this.quiz);
             this.status = '';
-            clearInterval(this.timer);
+            // clearInterval(this.timer);
             this.maxtime = 60;
             this.StartTimer(this.maxtime);
             // console.log('Cancel clicked');
