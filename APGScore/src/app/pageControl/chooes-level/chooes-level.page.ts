@@ -62,13 +62,13 @@ export class ChooesLevelPage implements OnInit {
       this.reload_page = false;
     }
 
-    this.platform.backButton.subscribeWithPriority(1000000, () => {
-      if (this.constructor.name == 'ChooesLevelPage') {
-        if (window.confirm('do you want to exit app.')) {
-          navigator['app'].exitApp();
-        }
-      }
-    });
+    // this.platform.backButton.subscribeWithPriority(1000000, () => {
+    //   if (this.constructor.name == 'ChooesLevelPage') {
+    //     if (window.confirm('do you want to exit app.')) {
+    //       navigator['app'].exitApp();
+    //     }
+    //   }
+    // });
   }
 
   ngOnInit() {
