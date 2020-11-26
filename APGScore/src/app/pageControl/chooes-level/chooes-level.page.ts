@@ -55,48 +55,9 @@ export class ChooesLevelPage implements OnInit {
     } else {
       this.chk_admin = false;
     }
-
-    if (this.reload_page == true) {
-      // this.reloadPage();
-      // window.location.href = 'chooes-level';
-      this.reload_page = false;
-    }
-
-    // this.platform.backButton.subscribeWithPriority(1000000, () => {
-    //   if (this.constructor.name == 'ChooesLevelPage') {
-    //     if (window.confirm('do you want to exit app.')) {
-    //       navigator['app'].exitApp();
-    //     }
-    //   }
-    // });
   }
 
   ngOnInit() {
-  }
-
-  // StartTimer(){
-  //   this.timer = setTimeout(x => 
-  //     {
-  //         if(this.maxtime <= 0) { }
-  //         this.maxtime -= 1;
-
-  //         if(this.maxtime>=0){
-  //           this.hidevalue = false;
-  //           this.StartTimer();
-  //         }
-          
-  //         else{
-  //             this.hidevalue = true;
-  //         }
-
-  //     }, 1000);
- 
-  //     console.log('Timer Maxtime  = ',this.maxtime);  
-  // }
-
-  async reloadPage() {
-    await window.location.reload();
-
   }
 
   signout() {
